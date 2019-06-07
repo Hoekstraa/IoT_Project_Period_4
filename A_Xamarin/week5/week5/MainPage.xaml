@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="week5.MainPage"
+             BackgroundColor="Azure">
+
+
+    <StackLayout Margin="16" VerticalOptions="Center" >
+        <Label/>
+        <Label/>
+
+        <Button x:Name="Button1" HorizontalOptions="Start" Text="Stopcontact 1" Clicked="Button1_Clicked" BackgroundColor="#03DAC6"/>
+        <Button x:Name="Button2" HorizontalOptions="Center" Text="Stopcontact 2" Clicked="Button2_Clicked" BackgroundColor="#03DAC6"/>
+        <Button x:Name="Button3" HorizontalOptions="End" Text="Stopcontact 3" Clicked="Button3_Clicked" BackgroundColor="#03DAC6"/>
+
+        <Label x:Name="ReturnLabel" HorizontalOptions="Center"/>
+
+    </StackLayout>
+
+</ContentPage>
