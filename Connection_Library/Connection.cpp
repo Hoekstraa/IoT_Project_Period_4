@@ -14,7 +14,7 @@ Connection::appendChar(char* s, char c)
 }
 
 // If a client is connected, collect the string sent and run the callback function on the string.
-Connection::Listen(char* (*callback)(const char *)) {
+Connection::Listen(char* (*callback)(Request *req)) {
   char _dataRec[30] = "";
   EthernetClient client = _server.available();
 
@@ -28,7 +28,9 @@ Connection::Listen(char* (*callback)(const char *)) {
       Serial.println("Data Received:");
       Serial.print(_dataRec);
       Serial.println("Callback calculating..");
-      char* result = callback(_dataRec);
+      Request* req;
+      char* result = callback(parseString(_dataRec));
+      delete req; // Needed to clear the result type for next time a client connects
       Serial.println("result:");
       Serial.println(result);
       _server.println(result); // Return result of callback to client.
@@ -37,3 +39,24 @@ Connection::Listen(char* (*callback)(const char *)) {
     }
   }
 }
+
+Request* Connection::parseString(char* str) {
+  Request* req = new Request();
+  const String ss = String(str);
+  
+  if (ss.startsWith("get ")) {
+    req->type = "get";
+    Serial.println(ss.substring(4));
+  }
+  else if (ss.startsWith("set ")) {
+    req->type = "set";
+    Serial.println(ss.substring(4));
+  }
+  else {req->type = "invalid";}
+
+  req->thing = "ThisIsATest";
+  req->value = 0;
+  
+  return req;
+}
+//}

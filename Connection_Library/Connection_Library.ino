@@ -8,37 +8,28 @@ IPAddress ip (192, 168, 1, 2);
 
 Connection connection(port);
 
-char* getter(String toGet)
-{
-  return "1024";
-}
+//char* getter(String toGet)
+//{
+//  return "1024";
+//}
+//
+//
+//char* setter(String toSet, int value)
+//{
+//  return "succes";
+//}
 
-
-char* setter(String toSet, int value)
+char* whatToDo(Request *req)
 {
-  return "succes";
-}
-
-char* whatToDo(const char* s)
-{
-  const String ss = String(s);
-  
-  if (ss.startsWith("get ")) {
-    Serial.print("Getting ");
-    Serial.println(ss.substring(4));
-    return getter(ss.substring(4));
-  }
-  if (ss.startsWith("set ")) {
-    Serial.print("Setting ");
-    Serial.println(ss.substring(4));
-    return setter(ss.substring(4), 0);
-  }
-  return "invalid command";
+  if(req->type == "invalid"){return req->type;}
+  return req->type;
 }
 
 void setup() {
   Ethernet.begin(mac, ip);
-  Serial.begin(9600);
+  // Pushed this value up to increase throughput,
+  // it seemingly decreased networkspeeds a lot.
+  Serial.begin(1000000); 
   Serial.println("Connected to serial");
   Serial.println("Starting listening");
 }

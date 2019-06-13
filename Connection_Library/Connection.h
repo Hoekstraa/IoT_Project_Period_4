@@ -9,17 +9,26 @@
 #include <WProgram.h>
 #endif
 
+class Request {
+  public:
+    char* type;
+    char* thing;
+    int value;
+};
+
 class Connection {
   public:
     // Constructor
     Connection(int port);
-
+    
     // Methods
-    Listen(char*(*callback)(const char *)); //Listens for connections, pushing strings forwards to a callback
+    Listen(char*(*callback)(Request *req)); //Listens for connections, pushing strings forwards to a callback
     appendChar(char* s, char c);
+
+    
   private:
     EthernetServer _server;
+    Request* parseString(char* str);
 };
-
 
 #endif
