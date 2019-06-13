@@ -11,20 +11,17 @@
         <ContentPage Title="Menu">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Grid Grid.Row="1">
-                    <Image Source="Images/menu_img.jpeg"/>
-                    <StackLayout Padding="0,20,0,0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                        <Label x:Name="username" FontSize="Large" TextColor="Blue"/>
-                    </StackLayout>
+                <Grid Grid.Row="0">
+                    <Image Source="ontkiem.jpg" HorizontalOptions="Fill"/>
                 </Grid>
 
-                <Grid Grid.Row="2">
-                    <StackLayout Spacing="8">
-                        <ListView x:Name="NavigationDrawerList" RowHeight="80" SeparatorVisibility="None" ItemSelected="NavigationDrawerList_ItemSelected" >
+                <Grid Grid.Row="1">
+                    <StackLayout>
+                        <ListView x:Name="NavigationDrawerList" RowHeight="70" SeparatorVisibility="None" ItemSelected="NavigationDrawerList_ItemSelected" >
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <local:CustomViewCell>
