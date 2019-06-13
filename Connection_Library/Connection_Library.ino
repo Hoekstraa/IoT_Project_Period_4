@@ -4,32 +4,29 @@
 const byte mac[] = {0xaa, 0xaa, 0xaa, 0xaa, 0xaa, 0xaa};
 const int port = 2525;
 
-IPAddress ip      (192,168,1,2);
+IPAddress ip (192, 168, 1, 2);
 
 Connection connection(port);
 
-String MergeStringArray (String strArr[])
+char* whatToDo(const char* s)
 {
-  String result = "";
-  for(int i = 0; i < 5; i++)
-  {
-    result = result + "i";
-  }
-  return result;
-}
+  Serial.println(s);
+  //char* ptr = strtok(s, " ");
 
-String whatToDo(const String *s)
-{
-  char str[30];
-  s->toCharArray(str, s->length());
-  String command[5] = strtok(str, ' ');
-  String result = MergeStringArray(command);
-  return result;
-  //return "test";
+  //char* result[5];
+
+  //while(ptr != NULL)
+  //{
+  //  result[0] = ptr;
+  //  ptr = strtok(NULL, " ");
+  //}
+  //return result[0];
+  return s;
 }
 
 void setup() {
-  Ethernet.begin(mac,ip);
+  Ethernet.begin(mac, ip);
+  Serial.begin(9600);
 }
 
 void loop() {

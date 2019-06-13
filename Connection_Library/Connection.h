@@ -4,9 +4,9 @@
 #define conn
 
 #if (ARDUINO >= 100)
-  #include <Arduino.h>
+#include <Arduino.h>
 #else
-  #include <WProgram.h>
+#include <WProgram.h>
 #endif
 
 class Connection {
@@ -14,9 +14,9 @@ class Connection {
     // Constructor
     Connection(int port);
 
-    // Methods  
-    Listen(String(*callback)(const String *)); //Listens for connections, pushing strings forwards to a callback
-  
+    // Methods
+    Listen(char*(*callback)(const char *)); //Listens for connections, pushing strings forwards to a callback
+    appendChar(char* s, char c);
   private:
     EthernetServer _server;
 };
