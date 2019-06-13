@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Garduino.Views.Statistics">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Grid.Row="1"></RowDefinition>
+                <RowDefinition Grid.Row="2"></RowDefinition>
+                <RowDefinition Grid.Row="3"></RowDefinition>
+                <RowDefinition Grid.Row="4"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1">
+                <StackLayout>
+                    <ListView x:Name="DateTimeList">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout>
+                                        <Label Text="Date/Time"></Label>
+                                        <Label Text="{Binding DateTime}"></Label>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <StackLayout>
+                    <ListView x:Name="TempList">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout>
+                                        <Label Text="Temperature"></Label>
+                                        <Label Text="{Binding Temp}"></Label>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </Grid>
+
+            <Grid Grid.Row="3">
+                <StackLayout>
+                    <ListView x:Name="HumidityList">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout>
+                                        <Label Text="Humidity"></Label>
+                                        <Label Text="{Binding Humidity}"></Label>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </Grid>
+            <Grid Grid.Row="4">
+                <StackLayout>
+                    <ListView x:Name="MoistList">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout>
+                                        <Label Text="Moist"></Label>
+                                        <Label Text="{Binding Moist}"></Label>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </Grid>
+            
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
