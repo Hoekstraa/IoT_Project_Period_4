@@ -8,25 +8,39 @@ IPAddress ip (192, 168, 1, 2);
 
 Connection connection(port);
 
+char* getter(String toGet)
+{
+  return "1024";
+}
+
+
+char* setter(String toSet, int value)
+{
+  return "succes";
+}
+
 char* whatToDo(const char* s)
 {
-  Serial.println(s);
-  //char* ptr = strtok(s, " ");
-
-  //char* result[5];
-
-  //while(ptr != NULL)
-  //{
-  //  result[0] = ptr;
-  //  ptr = strtok(NULL, " ");
-  //}
-  //return result[0];
-  return s;
+  const String ss = String(s);
+  
+  if (ss.startsWith("get ")) {
+    Serial.print("Getting ");
+    Serial.println(ss.substring(4));
+    return getter(ss.substring(4));
+  }
+  if (ss.startsWith("set ")) {
+    Serial.print("Setting ");
+    Serial.println(ss.substring(4));
+    return setter(ss.substring(4), 0);
+  }
+  return "invalid command";
 }
 
 void setup() {
   Ethernet.begin(mac, ip);
   Serial.begin(9600);
+  Serial.println("Connected to serial");
+  Serial.println("Starting listening");
 }
 
 void loop() {
