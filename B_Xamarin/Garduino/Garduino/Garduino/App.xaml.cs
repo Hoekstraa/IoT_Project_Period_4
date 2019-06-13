@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Garduino.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml; 
 
@@ -10,8 +11,7 @@ namespace Garduino
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
-            Plugin.Iconize.Iconize.With(new Plugin.Iconize.Fonts.FontAwesomeRegularModule());
+            MainPage = new MasterPage();
         }
 
         protected override void OnStart()

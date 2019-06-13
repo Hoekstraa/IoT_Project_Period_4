@@ -4,11 +4,43 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Garduino.MainPage">
+             x:Class="Garduino.MainPage"
+             Title="Homepage">
+    
+    <StackLayout Margin="8">
+        <Label Text="Huidige waardes" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="200"/>
+            </Grid.RowDefinitions>
 
-    <StackLayout>
-        <!-- Place new controls here -->
-     
+            <Grid Grid.Row="0" Grid.Column="0">
+                <StackLayout>
+                    <Image Source="temperaturehigh.png" HeightRequest="100" WidthRequest="100" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    <Label x:Name="TempLabel" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold"/>
+                </StackLayout>
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="1">
+                <StackLayout>
+                    <Image Source="tint.png" HeightRequest="100" WidthRequest="100" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    <Label x:Name="MoistLabel" Text="70 %" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold"/>
+                </StackLayout>
+            </Grid>
+            <Grid Grid.Row="1">
+                
+            </Grid>
+            <Grid Grid.Row="2">
+                
+            </Grid>
+            
+        </Grid>
+
     </StackLayout>
 
 </ContentPage>

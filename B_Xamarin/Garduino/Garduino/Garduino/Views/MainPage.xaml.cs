@@ -16,6 +16,11 @@ namespace Garduino
         public MainPage()
         {
             InitializeComponent();
+            string temp = "17";
+            string moist = "65";
+
+            TempLabel.Text = temp + " °C ";
+            MoistLabel.Text = moist + " %";
         }
     }
 }
