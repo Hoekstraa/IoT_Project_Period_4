@@ -8,9 +8,9 @@ namespace Garduino.Models
     {
         public string DateTime { get; set; }
 
-        public int Temp { get; set; }
+        public int Temperature { get; set; }
 
-        public int Moist { get; set; }
+        public int SoilMoisture { get; set; }
 
         public int Humiditiy  { get; set; }
     }
