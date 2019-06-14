@@ -25,7 +25,6 @@ class Connection {
     Listen(String (*callback)(Request *req)); //Listens for connections, pushing strings forwards to a callback
     appendChar(char* s, char c);
 
-
   private:
     EthernetServer _server;
     Request* parseString(char* str);

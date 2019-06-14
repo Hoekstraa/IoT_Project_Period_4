@@ -16,7 +16,7 @@ Connection::appendChar(char* s, char c)
 // If a client is connected, collect the string sent and run the callback function on the string.
 Connection::Listen(String (*callback)(Request *req)) {
   char _dataRec[30];
-  memset(&_dataRec[0], 0, sizeof(_dataRec));
+  memset(&_dataRec[0], 0, sizeof(_dataRec)); //clear char array for later reuse
 
   EthernetClient client = _server.available();
 
@@ -42,6 +42,7 @@ Connection::Listen(String (*callback)(Request *req)) {
   }
 }
 
+// turns string into a Request object.
 Request* Connection::parseString(char* str) {
   Request* req = new Request();
   const String ss = String(str);

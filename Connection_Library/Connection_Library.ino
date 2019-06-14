@@ -8,7 +8,8 @@ IPAddress ip (192, 168, 1, 2);
 
 Connection connection(port);
 
-String whatToDo(Request *req)
+// return string is for reply to client.
+String handleRequest(Request *req)
 {
   if (req->type == "invalid") {
     return req->type;
@@ -25,5 +26,5 @@ void setup() {
 }
 
 void loop() {
-  connection.Listen(whatToDo);
+  connection.Listen(handleRequest);
 }
