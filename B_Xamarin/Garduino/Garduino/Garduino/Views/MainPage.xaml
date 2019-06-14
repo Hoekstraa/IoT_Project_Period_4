@@ -23,7 +23,7 @@
             <Grid Grid.Row="0" Grid.Column="0">
                 <StackLayout>
                     <Label Text="Geplant op: " FontSize="Large" FontAttributes="Bold" HorizontalOptions="Start"/>
-                    <Label Text="Ongeveer klaar over: " FontSize="Large" FontAttributes="Bold" HorizontalOptions="Start"/>
+                    <Label Text="Ongeveer klaar op: " FontSize="Large" FontAttributes="Bold" HorizontalOptions="Start"/>
                 </StackLayout>
             </Grid>
             <Grid Grid.Row="0" Grid.Column="1">
