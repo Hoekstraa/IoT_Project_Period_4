@@ -27,14 +27,14 @@ Connection::Listen(String (*callback)(Request *req)) {
 
     // When the end of message appears, do the callback.
     if (received == '\n') {
-      //Serial.println("Data Received:");
-      //Serial.print(_dataRec);
+      Serial.println("Data Received:");
+      Serial.print(_dataRec);
       //Serial.println("Callback calculating..");
       Request* req;
       String result = callback(parseString(_dataRec));
       delete req; // Needed to clear the result type for next time a client connects
-      //Serial.println("result:");
-      //Serial.println(result);
+      Serial.println("result:");
+      Serial.println(result);
       _server.println(result); // Return result of callback to client.
       strcpy(_dataRec, "");
       //client.stop();

@@ -9,12 +9,12 @@ namespace CC
     {
         public static string Get(string thing)
         {
-            return SendString(string.Concat("get ", thing));
+            return SendString(string.Concat("get ", thing, "\n"));
         }
 
         public static string Set(string thing, int value)
         {
-            return SendString(string.Concat("set ", thing, " ", value));
+            return SendString(string.Concat("set ", thing, " ", value, "\n"));
         }
         
         /// <summary>
@@ -26,8 +26,8 @@ namespace CC
         {
             var bytes = new byte[1024];
 
-            var ipAddress = IPAddress.Parse("192.168.1.2");
-            var remoteEndPoint = new IPEndPoint(ipAddress,2525);
+            var ipAddress = IPAddress.Parse("172.16.6.0");
+            var remoteEndPoint = new IPEndPoint(ipAddress, 2525);
 
             var sender = new Socket(
                 ipAddress.AddressFamily,
@@ -39,19 +39,22 @@ namespace CC
             try
             {
                 sender.Connect(remoteEndPoint);
-                var bytesSent = sender.Send(msg);
-
-                var bytesReceived = sender.Receive(bytes);
-
-                sender.Shutdown(SocketShutdown.Both);
-                sender.Close();
-
-                return Encoding.ASCII.GetString(bytes, 0, bytesReceived);
-            }
-            catch (Exception e)
-            {
+            } catch(ArgumentNullException ae) {  
+                return ae.ToString();  
+            } catch(SocketException se) {  
+                return se.ToString();
+            } catch(Exception e) {
                 return e.ToString();
-            }
+            }  
+
+            sender.Send(msg);
+
+            var bytesReceived = sender.Receive(bytes);
+
+            sender.Shutdown(SocketShutdown.Both);
+            sender.Close();
+
+            return Encoding.ASCII.GetString(bytes, 0, bytesReceived);
         }
     }
 }
