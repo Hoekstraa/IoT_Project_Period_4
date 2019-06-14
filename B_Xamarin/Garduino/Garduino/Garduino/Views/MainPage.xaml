@@ -8,35 +8,97 @@
              Title="Homepage">
     
     <StackLayout Margin="8">
-        <Label Text="Huidige waardes" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center"/>
+    
+        <Image x:Name="cropImg" HeightRequest="150"/>
+
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.5*"/>
                 <ColumnDefinition Width="0.5*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="200"/>
-                <RowDefinition Height="200"/>
-                <RowDefinition Height="200"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="20"/>
             </Grid.RowDefinitions>
-
             <Grid Grid.Row="0" Grid.Column="0">
                 <StackLayout>
-                    <Image Source="temperaturehigh.png" HeightRequest="100" WidthRequest="100" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                    <Label x:Name="TempLabel" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold"/>
+                    <Label Text="Geplant op: " FontSize="Large" FontAttributes="Bold" HorizontalOptions="Start"/>
+                    <Label Text="Ongeveer klaar op: " FontSize="Large" FontAttributes="Bold" HorizontalOptions="Start"/>
                 </StackLayout>
             </Grid>
             <Grid Grid.Row="0" Grid.Column="1">
                 <StackLayout>
-                    <Image Source="tint.png" HeightRequest="100" WidthRequest="100" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                    <Label x:Name="MoistLabel" Text="70 %" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold"/>
+                    <Label x:Name="datePlantedLabel" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    <Label x:Name="estDoneLabel" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center"/>
                 </StackLayout>
             </Grid>
-            <Grid Grid.Row="1">
-                
+
+        </Grid>
+
+        <Label Text="Huidige waardes" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="0.3*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="185"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="185"/>
+            </Grid.RowDefinitions>
+
+            <!-- 1st row-->
+            <Grid Grid.Row ="0"/>
+
+            <!-- 2nd row -->
+            <Grid Grid.Row="1" Grid.Column="0">
+                <StackLayout>
+                    <Label Text="Temperatuur" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
+                    <Image Source="temperaturehigh.png" HeightRequest="85" WidthRequest="85" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    <Label x:Name="TempLabel" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
+                </StackLayout>
             </Grid>
-            <Grid Grid.Row="2">
-                
+            <Grid Grid.Row="1" Grid.Column="1">
+                <StackLayout>
+                    <Label Text="Luchtvochtigheid" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
+                    <Image Source="water.png" HeightRequest="85" WidthRequest="85" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    <Label x:Name="MoistLabel" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
+                </StackLayout>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="2">
+                <StackLayout>
+                    <Label Text="Bodemvocht" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
+                    <Image Source="soilmoist.png" HeightRequest="85" WidthRequest="85" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    <Label x:Name="SoilLabel" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
+                </StackLayout>
+            </Grid>
+            
+            <!-- 3rd row-->
+            <Grid Grid.Row ="2" Grid.Column="0"/>
+            
+            <!-- 4th row-->
+            <Grid Grid.Row="3" Grid.Column="0">
+                <StackLayout>
+                    <Label Text="Licht" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
+                    <Image Source="lightbulb.png" HeightRequest="85" WidthRequest="85" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    <Label x:Name="LightLabel" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
+                </StackLayout>
+            </Grid>
+            <Grid Grid.Row="3" Grid.Column="1">
+                <StackLayout>
+                    <Label Text="Ventilator" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
+                    <Image Source="fan.png" HeightRequest="85" WidthRequest="85" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    <Label x:Name="FanLabel" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
+                </StackLayout>
+            </Grid>
+            <Grid Grid.Row="3" Grid.Column="2">
+                <StackLayout>
+                    <Label Text="Water pomp" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
+                    <Image Source="tint.png" HeightRequest="85" WidthRequest="85" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    <Label x:Name="WaterLabel" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
+                </StackLayout>
             </Grid>
             
         </Grid>

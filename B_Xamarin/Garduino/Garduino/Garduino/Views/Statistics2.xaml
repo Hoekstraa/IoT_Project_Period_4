@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Garduino.Views.Statistics2">
+    <ContentPage.Content>
+
+
+        <StackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.25*"/>
+                    <ColumnDefinition Width="0.25*"/>
+                    <ColumnDefinition Width="0.25*"/>
+                    <ColumnDefinition Width="0.25*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Grid.Row="1" Height="300"></RowDefinition>
+                    <RowDefinition Grid.Row="2" Height="300"></RowDefinition>
+                    <RowDefinition Grid.Row="3" Height="300"></RowDefinition>
+                    <RowDefinition Grid.Row="4" Height="300"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <StackLayout>
+                        <ListView x:Name="DateTimeList">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout>
+                                            <Label Text="Date/Time"></Label>
+                                            <Label Text="{Binding DateTime}"></Label>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </Grid>
+
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <StackLayout>
+                        <ListView x:Name="TempList">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout>
+                                            <Label Text="Temperature"></Label>
+                                            <Label Text="{Binding Temperature}"></Label>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </Grid>
+
+                <Grid Grid.Row="2" Grid.Column="2">
+                    <StackLayout>
+                        <ListView x:Name="HumidityList">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout>
+                                            <Label Text="Humidity"></Label>
+                                            <Label Text="{Binding Humidity}"></Label>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </Grid>
+                <Grid Grid.Row="3" Grid.Column="3">
+                    <StackLayout>
+                        <ListView x:Name="MoistList">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout>
+                                            <Label Text="Moist"></Label>
+                                            <Label Text="{Binding SoilMoisture}"></Label>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </Grid>
+
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -6,6 +6,6 @@ namespace Garduino
 {
     public static class Config
     {
-        
+
     }
 }

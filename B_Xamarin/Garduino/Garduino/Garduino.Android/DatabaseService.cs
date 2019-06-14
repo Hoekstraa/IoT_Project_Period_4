@@ -2,14 +2,17 @@
 using SQLite;
 using Garduino.Database;
 using Environment = System.Environment;
+using Xamarin.Forms;
+using Garduino.Droid;
 
+[assembly: Dependency(typeof(DatabaseService))]
 namespace Garduino.Droid
 {
     public class DatabaseService : IDBInterface
     {
         public SQLiteConnection CreateConnection()
         {
-            var sqliteFilename = "MovieDB.db";
+            var sqliteFilename = "KasDatabase.db";
             string documentDirectoryPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             var path = Path.Combine(documentDirectoryPath, sqliteFilename);
 
