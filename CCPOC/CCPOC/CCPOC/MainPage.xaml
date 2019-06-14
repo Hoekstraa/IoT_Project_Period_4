@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CCPOC"
+             x:Class="CCPOC.MainPage">
+
+    <StackLayout>
+        <!-- Place new controls here -->
+        <Label Text="Welcome to Xamarin.Forms!" 
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" />
+        <Button Pressed="B1_OnPressed" Text="B1"></Button>
+        <Label x:Name="L1"  Text="L1"></Label>
+        <Button Pressed="B2_OnPressed" Text="B1"></Button>
+        <Label x:Name="L2"  Text="L1"></Label>
+        <Button Pressed="B3_OnPressed" Text="B1"></Button>
+        <Label x:Name="L3"  Text="L1"></Label>
+
+
+    </StackLayout>
+
+</ContentPage>
