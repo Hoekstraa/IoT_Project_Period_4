@@ -11,10 +11,10 @@
            VerticalOptions="CenterAndExpand" />
         <Button Pressed="B1_OnPressed" Text="B1"></Button>
         <Label x:Name="L1"  Text="L1"></Label>
-        <Button Pressed="B2_OnPressed" Text="B1"></Button>
-        <Label x:Name="L2"  Text="L1"></Label>
-        <Button Pressed="B3_OnPressed" Text="B1"></Button>
-        <Label x:Name="L3"  Text="L1"></Label>
+        <Button Pressed="B2_OnPressed" Text="B2"></Button>
+        <Label x:Name="L2"  Text="L2"></Label>
+        <Button Pressed="B3_OnPressed" Text="B3"></Button>
+        <Label x:Name="L3"  Text="L3"></Label>
 
 
     </StackLayout>

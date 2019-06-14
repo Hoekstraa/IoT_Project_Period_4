@@ -8,8 +8,6 @@ using Xamarin.Forms;
 
 namespace Garduino
 {
-    // Learn more about making custom code visible in the Xamarin.Forms previewer
-    // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
@@ -26,8 +24,7 @@ namespace Garduino
 
             datePlantedLabel.Text = datePlanted.ToString("dd-MM-yyyy") ; 
             estDoneLabel.Text = estDone.ToString("dd-MM-yyyy") ; 
-
-            string imgSource = "tomaat.png";
+           
             string temp = "23";
             string moist = "34";
             string soil = "45";
@@ -35,7 +32,7 @@ namespace Garduino
             string ventilator = "Uit";
             string waterpomp = "Uit";
 
-            cropImg.Source = imgSource; 
+            cropImg.Source = Config.cropImg;
             TempLabel.Text = temp + " °C";
             MoistLabel.Text = moist + " %";
             SoilLabel.Text = soil + " %";
