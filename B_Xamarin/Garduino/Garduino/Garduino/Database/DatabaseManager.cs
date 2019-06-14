@@ -40,12 +40,7 @@ namespace Garduino.Database
             bool Equal(string s) => s == soort;
             return (from m in _c.Table<StartValues>() select m.Soort).Any(Equal);
         }
-        SQLiteConnection Dbconnection;
 
-        public DatabaseManager()
-        {
-            Dbconnection = DependencyService.Get<IDBInterface>().CreateConnection();
-        }
         public string GetDate()
         {
             string iets = "13 Juni 2019";
@@ -53,15 +48,15 @@ namespace Garduino.Database
         }
         public List<Stats> GetTemp()
         {
-            return new List<Stats>(Dbconnection.Query<Stats>("Select Temperature From SensorValues"));
+            return new List<Stats>(_c.Query<Stats>("Select Temperature From SensorValues"));
         }
         public List<Stats> GetHumidity()
         {
-            return new List<Stats>(Dbconnection.Query<Stats>("Select Humidity From SensorValues"));
+            return new List<Stats>(_c.Query<Stats>("Select Humidity From SensorValues"));
         }
         public List<Stats> GetMoist()
         {
-            return new List<Stats>(Dbconnection.Query<Stats>("Select Moist From SensorValues"));
+            return new List<Stats>(_c.Query<Stats>("Select Moist From SensorValues"));
         }
     }
 }

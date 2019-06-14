@@ -16,11 +16,33 @@ namespace Garduino
         public MainPage()
         {
             InitializeComponent();
-            string temp = "17";
-            string moist = "65";
-
-            TempLabel.Text = temp + " °C ";
-            MoistLabel.Text = moist + " %";
+            setParameters();
         }
+
+        void setParameters()
+        {
+            DateTime datePlanted = DateTime.Now;
+            DateTime estDone = DateTime.Today.AddDays(10);
+
+            datePlantedLabel.Text = datePlanted.ToString("dd-MM-yyyy") ; 
+            estDoneLabel.Text = estDone.ToString("dd-MM-yyyy") ; 
+
+            string imgSource = "tomaat.png";
+            string temp = "23";
+            string moist = "34";
+            string soil = "45";
+            string licht = "Aan";
+            string ventilator = "Uit";
+            string waterpomp = "Uit";
+
+            cropImg.Source = imgSource; 
+            TempLabel.Text = temp + " °C";
+            MoistLabel.Text = moist + " %";
+            SoilLabel.Text = soil + " %";
+            LightLabel.Text = licht;
+            FanLabel.Text = ventilator;
+            WaterLabel.Text = waterpomp; 
+        }
+
     }
 }

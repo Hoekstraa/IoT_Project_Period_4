@@ -15,7 +15,7 @@ namespace Garduino.Views
             InitializeComponent();
             
             menuItems.Add(new MenuItems { Title = "Homepage", Icon = "home.png", TargetType = typeof(MainPage) });
-            menuItems.Add(new MenuItems { Title = "Statistics", Icon = "chart.png", TargetType = typeof(MainPage) });
+            menuItems.Add(new MenuItems { Title = "Statistics", Icon = "chart.png", TargetType = typeof(Statistics) });
             menuItems.Add(new MenuItems { Title = "Controls", Icon = "sliders.png", TargetType = typeof(Controls) });
             menuItems.Add(new MenuItems { Title = "Settings", Icon = "gear.png", TargetType = typeof(Settings) });
 
