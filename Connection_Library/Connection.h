@@ -11,8 +11,8 @@
 
 class Request {
   public:
-    char* type;
-    char* thing;
+    String type;
+    String thing;
     int value;
 };
 
@@ -20,12 +20,12 @@ class Connection {
   public:
     // Constructor
     Connection(int port);
-    
+
     // Methods
-    Listen(char*(*callback)(Request *req)); //Listens for connections, pushing strings forwards to a callback
+    Listen(String (*callback)(Request *req)); //Listens for connections, pushing strings forwards to a callback
     appendChar(char* s, char c);
 
-    
+
   private:
     EthernetServer _server;
     Request* parseString(char* str);
