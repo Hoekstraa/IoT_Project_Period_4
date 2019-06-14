@@ -5,6 +5,7 @@ Connection::Connection(int port) : _server(port) {
   _server.begin();
 }
 
+//WARNING: Does not check if appending will go out of range of char* s!
 Connection::appendChar(char* s, char c)
 {
   int len = strlen(s);

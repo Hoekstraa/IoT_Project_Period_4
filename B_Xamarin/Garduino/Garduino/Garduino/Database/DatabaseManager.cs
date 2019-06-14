@@ -12,13 +12,14 @@ namespace Garduino.Database
    
     class DatabaseManager
     {
-        private readonly SQLiteConnection _c;
+         SQLiteConnection _c;
 
         public DatabaseManager()
         {
+            
             _c = DependencyService.Get<IDBInterface>().CreateConnection();
-            _c.CreateTable<StartValues>();
-            _c.CreateTable<SensorValues>();
+            //_c.CreateTable<StartValues>();
+            //_c.CreateTable<SensorValues>();
         }
 
         public List<StartValues> GetStartValues() =>
@@ -41,22 +42,23 @@ namespace Garduino.Database
             return (from m in _c.Table<StartValues>() select m.Soort).Any(Equal);
         }
 
-        public string GetDate()
+
+
+        public List<SensorValues> GetDate()
         {
-            string iets = "13 Juni 2019";
-            return iets;
+            return new List<SensorValues>(_c.Query<SensorValues>("Select DateTime From [SensorValues]"));
         }
-        public List<Stats> GetTemp()
+        public List<SensorValues> GetTemp()
         {
-            return new List<Stats>(_c.Query<Stats>("Select Temperature From SensorValues"));
+            return new List<SensorValues>(_c.Query<SensorValues>("Select Temperature From [SensorValues]"));
         }
-        public List<Stats> GetHumidity()
+        public List<SensorValues> GetHumidity()
         {
-            return new List<Stats>(_c.Query<Stats>("Select Humidity From SensorValues"));
+            return new List<SensorValues>(_c.Query<SensorValues>("Select Humidity From SensorValues"));
         }
-        public List<Stats> GetMoist()
+        public List<SensorValues> GetMoist()
         {
-            return new List<Stats>(_c.Query<Stats>("Select Moist From SensorValues"));
+            return new List<SensorValues>(_c.Query<SensorValues>("Select SoilMoisture From SensorValues"));
         }
     }
 }

@@ -5,6 +5,7 @@ using SQLite;
 
 namespace Garduino.Database
 {
+    [Table("SensorValues")]
     class SensorValues
     {
         [PrimaryKey, Unique] public string DateTime { get; set; }
