@@ -26,7 +26,7 @@ namespace Garduino.Database
             (from s in _c.Table<StartValues>() select s).ToList();
 
         public List<SensorValues> GetSensorValues() =>
-    (from s in _c.Table<SensorValues>() select s).ToList();
+            (from s in _c.Table<SensorValues>() select s).ToList();
 
         public void AddOrUpdateStartValues(StartValues s)
         {
@@ -41,8 +41,11 @@ namespace Garduino.Database
             bool Equal(string s) => s == soort;
             return (from m in _c.Table<StartValues>() select m.Soort).Any(Equal);
         }
-
-
+         
+        public List<Settings> GetSettings()
+        {
+            return new List<Settings>(_c.Query<Settings>("SELECT * FROM [Settings]"));
+        }
 
         public List<SensorValues> GetDate()
         {

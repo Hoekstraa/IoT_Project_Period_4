@@ -41,19 +41,12 @@ namespace Garduino
             _connectionSocket.Send(msg);
         }
 
-
-        public string Transmit(string buttonName)
+        public string Recieve(string message)
         {
-            Send(buttonName);
+            Send(message);
             int byteRec = _connectionSocket.Receive(bytes);
             return Encoding.ASCII.GetString(bytes, 0, byteRec);
         }
 
-        public string Recieve()
-        {
-            Send("U");
-            int byteRec = _connectionSocket.Receive(bytes);
-            return Encoding.ASCII.GetString(bytes, 0, byteRec);
-        }
     }
 }
