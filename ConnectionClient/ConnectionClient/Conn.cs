@@ -26,7 +26,7 @@ namespace CC
         {
             var bytes = new byte[1024];
 
-            var ipAddress = IPAddress.Parse("172.16.6.0");
+            var ipAddress = IPAddress.Parse("192.168.1.10");
             var remoteEndPoint = new IPEndPoint(ipAddress, 2525);
 
             var sender = new Socket(

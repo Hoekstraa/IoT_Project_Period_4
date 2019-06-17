@@ -4,7 +4,7 @@
 const byte mac[] = {0xaa, 0xaa, 0xaa, 0xaa, 0xaa, 0xaa};
 const int port = 2525;
 
-IPAddress ip (172, 16, 6, 0);
+IPAddress ip (192, 168, 1, 10);
 
 Connection connection(port);
 
@@ -13,28 +13,32 @@ int temp1 = 0;
 // return string is for reply to client.
 String handleRequest(Request *req)
 {
-  if (req->type != "get" && req->type != "set") {
-    return "invalid";
-  }
+//  if (req->type != "get" && req->type != "set") {
+//    return "invalid";
+//  }
+//
+//  if (req->type == "get")
+//  {
+//    //if (req->thing == "temp1") {
+//      return String(temp1);
+//    //}
+//  }
+//
+//  if (req->type == "set")
+//  {
+//    if (req->thing == "temp1") {
+//      temp1 = req->value;
+//      return "succes";
+//    }
+//  }
 
-  if (req->type == "get")
-  {
-    //if (req->thing == "temp1") {
-      return String(temp1);
-    //}
-  }
-
-  if (req->type == "set")
-  {
-    if (req->thing == "temp1") {
-      temp1 = req->value;
-      return "succes";
-    }
-  }
-
+  if (req->thing == "hmd1") return humidity();
+  if (req->thing == "wtr1") return waterpump();
+  if (req->thing == "fan1") return fan();
+  if (req->thing == "gnd1") return groundhumidity();
+  if (req->thing == "lmp1") return lamp();
   
-  
-  return "unknown thing";
+  return "invalid request";
 }
 
 void setup() {
