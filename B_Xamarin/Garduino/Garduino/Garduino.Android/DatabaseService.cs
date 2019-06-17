@@ -12,7 +12,7 @@ namespace Garduino.Droid
     {
         public SQLiteConnection CreateConnection()
         {
-            var sqliteFilename = "KasDatabase.db";
+            var sqliteFilename = "GarduinoDB.db";
             string documentDirectoryPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             var path = Path.Combine(documentDirectoryPath, sqliteFilename);
 

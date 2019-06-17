@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -20,7 +15,7 @@ namespace Garduino.Views
         public void Button_Clicked(object sender, EventArgs e)
         {
             string buttonName = ((Button)sender).Text;
-            var confirm = new Setup_Confirm();
+            var confirm = new Setup_Summary();
 
             switch (buttonName)
             {

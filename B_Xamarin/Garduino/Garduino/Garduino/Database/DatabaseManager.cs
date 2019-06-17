@@ -12,56 +12,56 @@ namespace Garduino.Database
    
     class DatabaseManager
     {
-         SQLiteConnection _c;
+         SQLiteConnection Connection;
 
         public DatabaseManager()
-        {
-            
-            _c = DependencyService.Get<IDBInterface>().CreateConnection();
-            //_c.CreateTable<StartValues>();
-            //_c.CreateTable<SensorValues>();
+        {       
+            Connection = DependencyService.Get<IDBInterface>().CreateConnection();
         }
 
-        public List<StartValues> GetStartValues() =>
-            (from s in _c.Table<StartValues>() select s).ToList();
+        
+        public List<Soort> GetSoorten()
+        {
+            return new List<Soort>(Connection.Query<Soort>("SELECT * FROM [Soort]")); 
+        }
+
+        public Soort GetSelectedSoort()
+        {
+            return Connection.FindWithQuery<Soort>("SELECT * FROM Soort WHERE Selected = 1");
+        }
 
         public List<SensorValues> GetSensorValues() =>
-            (from s in _c.Table<SensorValues>() select s).ToList();
+            (from s in Connection.Table<SensorValues>() select s).ToList();
 
-        public void AddOrUpdateStartValues(StartValues s)
+        public void AddOrUpdateStartValues(Soort s)
         {
-            if (!DoesSpeciesExist(s.Soort))
-                _c.Insert(s);
+            if (!DoesSpeciesExist(s.CropName))
+                Connection.Insert(s);
             else
-                _c.Update(s);
+                Connection.Update(s);
         }
 
         public bool DoesSpeciesExist(string soort)
         {
             bool Equal(string s) => s == soort;
-            return (from m in _c.Table<StartValues>() select m.Soort).Any(Equal);
+            return (from m in Connection.Table<Soort>() select m.CropName).Any(Equal);
         }
          
-        public List<Settings> GetSettings()
-        {
-            return new List<Settings>(_c.Query<Settings>("SELECT * FROM [Settings]"));
-        }
-
         public List<SensorValues> GetDate()
         {
-            return new List<SensorValues>(_c.Query<SensorValues>("Select DateTime From [SensorValues]"));
+            return new List<SensorValues>(Connection.Query<SensorValues>("Select DateTime From [SensorValues]"));
         }
         public List<SensorValues> GetTemp()
         {
-            return new List<SensorValues>(_c.Query<SensorValues>("Select Temperature From [SensorValues]"));
+            return new List<SensorValues>(Connection.Query<SensorValues>("Select Temperature From [SensorValues]"));
         }
         public List<SensorValues> GetHumidity()
         {
-            return new List<SensorValues>(_c.Query<SensorValues>("Select Humidity From SensorValues"));
+            return new List<SensorValues>(Connection.Query<SensorValues>("Select Humidity From SensorValues"));
         }
         public List<SensorValues> GetMoist()
         {
-            return new List<SensorValues>(_c.Query<SensorValues>("Select SoilMoisture From SensorValues"));
+            return new List<SensorValues>(Connection.Query<SensorValues>("Select SoilMoisture From SensorValues"));
         }
     }
 }

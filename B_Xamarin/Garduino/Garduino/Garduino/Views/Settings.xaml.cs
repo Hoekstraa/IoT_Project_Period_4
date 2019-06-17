@@ -16,7 +16,7 @@ namespace Garduino.Views
         {
             InitializeComponent();
 
-            cropImg.Source = Config.cropImg; 
+        
         }
     }
 }

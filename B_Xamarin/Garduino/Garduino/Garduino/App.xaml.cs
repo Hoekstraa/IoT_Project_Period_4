@@ -10,35 +10,21 @@ namespace Garduino
     public partial class App : Application
     {
         DatabaseManager db = new DatabaseManager();
-        List<Database.Settings> settings = new List<Database.Settings>(); 
 
         public App()
         {
             InitializeComponent();
-            settings = db.GetSettings();
-
-            if (settings[0] != null)
-            {
-                MainPage = new MasterPage();
-            }
-            else
-            {
-                MainPage = new Setup_Select(); 
-            }
+            Config.selectedCrop = db.GetSelectedSoort();
         }
 
         protected override void OnStart()
         {
+            Config.selectedCrop = db.GetSelectedSoort();
 
-            if (settings[0] != null)
-            {
-                Config.cropSelected = settings[0].ToString(); 
+            if (Config.selectedCrop != null)
                 MainPage = new MasterPage();
-            }
             else
-            {
-                MainPage = new Setup_Select();
-            }
+                MainPage = new Setup_Select(); 
         }
 
         protected override void OnSleep()

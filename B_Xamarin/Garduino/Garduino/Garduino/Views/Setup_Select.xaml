@@ -1,29 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:App1"
-             x:Class="App1.MainPage">
-
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Garduino.Views.Setup_Select">
+    
     <StackLayout Spacing="30">
         <Label Text="Kies uw Groente" HorizontalOptions="Center" Font="Bold,20"/>
         <Grid>
             <Label VerticalOptions="Center" HorizontalOptions="Center" Text="Komkommer:" Grid.Row="0" Grid.Column="0" />
-            <ImageButton x:Name="Cucumber" VerticalOptions="Center" HorizontalOptions="Center" Source="Cucumber.png" Grid.Row="1" Grid.Column="0" Clicked="Button_Clicked"></ImageButton>
+            <ImageButton x:Name="Cucumber" VerticalOptions="Center" HorizontalOptions="Center" Source="komkommer.png" Grid.Row="1" Grid.Column="0" Clicked="Button_Clicked"></ImageButton>
             <Label VerticalOptions="Center" HorizontalOptions="Center" Text="Tomaat:" Grid.Row="0" Grid.Column="1" />
-            <ImageButton x:Name="Tomato" VerticalOptions="Center" HorizontalOptions="Center" Source="Tomato.png" Grid.Row="1" Grid.Column="1" Clicked="Button_Clicked"></ImageButton>
+            <ImageButton x:Name="Tomato" VerticalOptions="Center" HorizontalOptions="Center" Source="tomaat.png" Grid.Row="1" Grid.Column="1" Clicked="Button_Clicked"></ImageButton>
             <Label VerticalOptions="Center" HorizontalOptions="Center" Text="Aardappel:" Grid.Row="2" Grid.Column="0" />
-            <ImageButton x:Name="Potato" VerticalOptions="Center" HorizontalOptions="Center" Source="Potato.png" Grid.Row="3" Grid.Column="0" Clicked="Button_Clicked"></ImageButton>
+            <ImageButton x:Name="Potato" VerticalOptions="Center" HorizontalOptions="Center" Source="aardappel.png" Grid.Row="3" Grid.Column="0" Clicked="Button_Clicked"></ImageButton>
             <Label VerticalOptions="Center" HorizontalOptions="Center" Text="Courgette:" Grid.Row="2" Grid.Column="1" />
-            <ImageButton x:Name="Courgette" VerticalOptions="Center" HorizontalOptions="Center" Source="Courgette.png" Grid.Row="3" Grid.Column="1" Clicked="Button_Clicked"></ImageButton>
+            <ImageButton x:Name="Courgette" VerticalOptions="Center" HorizontalOptions="Center" Source="courgette.png" Grid.Row="3" Grid.Column="1" Clicked="Button_Clicked"></ImageButton>
             <Label VerticalOptions="Center" HorizontalOptions="Center" Text="Knolraap:" Grid.Row="4" Grid.Column="0" />
-            <ImageButton x:Name="Turnip" VerticalOptions="Center" HorizontalOptions="Center" Source="Turnip.png" Grid.Row="5" Grid.Column="0" Clicked="Button_Clicked"></ImageButton>
+            <ImageButton x:Name="Turnip" VerticalOptions="Center" HorizontalOptions="Center" Source="knolraap.png" Grid.Row="5" Grid.Column="0" Clicked="Button_Clicked"></ImageButton>
             <Label VerticalOptions="Center" HorizontalOptions="Center" Text="Radijs:" Grid.Row="4" Grid.Column="1" />
-            <ImageButton x:Name="Radish" VerticalOptions="Center" HorizontalOptions="Center" Source="Radish.png" Grid.Row="5" Grid.Column="1" Clicked="Button_Clicked"></ImageButton>
+            <ImageButton x:Name="Radish" VerticalOptions="Center" HorizontalOptions="Center" Source="radijs.png" Grid.Row="5" Grid.Column="1" Clicked="Button_Clicked"></ImageButton>
             <Label VerticalOptions="Center" HorizontalOptions="Center" Text="Paprika:" Grid.Row="6" Grid.Column="0" />
-            <ImageButton x:Name="Paprika" VerticalOptions="Center" HorizontalOptions="Center" Source="Paprika.png" Grid.Row="7" Grid.Column="0" Clicked="Button_Clicked"></ImageButton>
+            <ImageButton x:Name="Paprika" VerticalOptions="Center" HorizontalOptions="Center" Source="paprika.png" Grid.Row="7" Grid.Column="0" Clicked="Button_Clicked"></ImageButton>
             <Label VerticalOptions="Center" HorizontalOptions="Center" Text="Peterselie" Grid.Row="6" Grid.Column="1" />
-            <ImageButton x:Name="Parsley" VerticalOptions="Center" HorizontalOptions="Center" Source="Parsley.png" Grid.Row="7" Grid.Column="1" Clicked="Button_Clicked"></ImageButton>
+            <ImageButton x:Name="Parsley" VerticalOptions="Center" HorizontalOptions="Center" Source="peterselie.png" Grid.Row="7" Grid.Column="1" Clicked="Button_Clicked"></ImageButton>
         </Grid>
     </StackLayout>
-
 </ContentPage>

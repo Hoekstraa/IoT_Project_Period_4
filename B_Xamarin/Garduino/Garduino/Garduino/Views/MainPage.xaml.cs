@@ -32,7 +32,7 @@ namespace Garduino
             string ventilator = "Uit";
             string waterpomp = "Uit";
 
-            cropImg.Source = Config.cropImg;
+            cropImg.Source = Config.selectedCrop.ImageSource;
             TempLabel.Text = temp + " °C";
             MoistLabel.Text = moist + " %";
             SoilLabel.Text = soil + " %";
