@@ -7,6 +7,8 @@
              x:Class="Garduino.Views.Setup_Summary">
 
     <StackLayout>
+        <Image x:Name="cropImg" HeightRequest="150"/>
+        
         <Label x:Name="CropNameLabel"/>
         <Label x:Name="SelectedLabel"/>
         <Label x:Name="DateSelectedLabel"/>

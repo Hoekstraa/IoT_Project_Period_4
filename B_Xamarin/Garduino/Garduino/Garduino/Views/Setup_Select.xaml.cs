@@ -23,8 +23,6 @@ namespace Garduino.Views
             // Makes new soort and updates soort as selected + day selected
             Soort soort = db.GetSoort(buttonName);
             soort.DateSelected =  DateTime.Now.ToString("dd/MM/yy");
-            soort.Selected = 1; 
-            db.AddOrUpdateStartValues(soort);
 
             // Sets selected crop in configfile
             Config.selectedCrop = soort;
