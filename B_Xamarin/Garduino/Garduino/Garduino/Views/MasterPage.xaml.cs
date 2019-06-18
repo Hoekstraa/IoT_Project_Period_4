@@ -13,7 +13,7 @@ namespace Garduino.Views
         public MasterPage()
         {
             InitializeComponent();
-            
+
             menuItems.Add(new MenuItems { Title = "Homepage", Icon = "home.png", TargetType = typeof(MainPage) });
             menuItems.Add(new MenuItems { Title = "Statistics", Icon = "chart.png", TargetType = typeof(Statistics2) });
             menuItems.Add(new MenuItems { Title = "Controls", Icon = "sliders.png", TargetType = typeof(Controls) });
