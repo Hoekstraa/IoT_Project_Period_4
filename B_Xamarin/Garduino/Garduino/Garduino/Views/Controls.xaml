@@ -7,7 +7,7 @@
              x:Class="Garduino.Views.Controls">
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout HeightRequest="300">
+            <StackLayout HeightRequest="200">
 
                 <Label Text="Humidity" VerticalOptions="Center" HorizontalOptions="Center"></Label>
                 <Slider x:Name="HumiditySlider" Minimum="0" Maximum="100" DragCompleted="HumiditySlider_DragCompleted" VerticalOptions="Center"></Slider>
@@ -16,7 +16,7 @@
                 
             </StackLayout>
 
-            <StackLayout  HeightRequest="300">
+            <StackLayout  HeightRequest="200">
 
                 <Label Text="Soil humidity" VerticalOptions="Center" HorizontalOptions="Center"></Label>
                 <Slider x:Name="SoilSlider" Minimum="0" Maximum="100" DragCompleted="SoilSlider_DragCompleted" VerticalOptions="Center"></Slider>
@@ -25,7 +25,7 @@
                 
             </StackLayout>
 
-            <StackLayout  HeightRequest="300">
+            <StackLayout  HeightRequest="200">
                 
                 <Label Text="Fan speed" VerticalOptions="Center" HorizontalOptions="Center"></Label>
                 <Slider x:Name="FanSlider" Minimum="0" Maximum="100" DragCompleted="FanSlider_DragCompleted" VerticalOptions="Center"></Slider>

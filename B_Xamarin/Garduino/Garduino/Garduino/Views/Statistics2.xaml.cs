@@ -18,10 +18,10 @@ namespace Garduino.Views
         public Statistics2()
         {
             InitializeComponent();
-            DateTimeList.ItemsSource = databaseManager.GetDate();
-            TempList.ItemsSource = databaseManager.GetTemp();
-            HumidityList.ItemsSource = databaseManager.GetHumidity();
-            MoistList.ItemsSource = databaseManager.GetMoist();
+            //DateTimeList.ItemsSource = databaseManager.GetDate();
+            //TempList.ItemsSource = databaseManager.GetTemp();
+            //HumidityList.ItemsSource = databaseManager.GetHumidity();
+            //MoistList.ItemsSource = databaseManager.GetMoist();
 
         }
     }
