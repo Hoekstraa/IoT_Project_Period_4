@@ -12,9 +12,43 @@ namespace Garduino.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Controls : ContentPage
     {
+
+        private double Fan;
+        private double Soil;
+        private double Humidity;
         public Controls()
         {
             InitializeComponent();
+        }
+
+        public void FanSlider_DragCompleted(object sender, EventArgs e)
+        {
+             Fan = FanSlider.Value;
+        }
+
+        public void SoilSlider_DragCompleted(object sender, EventArgs e)
+        {
+            Soil = SoilSlider.Value;
+        }
+
+        public void HumiditySlider_DragCompleted(object sender, EventArgs e)
+        {
+            Humidity = HumiditySlider.Value;
+        }
+
+        public void FanSend_Clicked(object sender, EventArgs e)
+        {
+           
+        }
+
+        public void SoilSend_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        public void HumiditySend_Clicked(object sender, EventArgs e)
+        {
+             
         }
     }
 }

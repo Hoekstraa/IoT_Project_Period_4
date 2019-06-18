@@ -7,9 +7,18 @@
              x:Class="Garduino.Views.Controls">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Humidity" VerticalOptions="Center"></Label>
+            <Slider x:Name="HumiditySlider" Minimum="0" Maximum="100" DragCompleted="HumiditySlider_DragCompleted" VerticalOptions="Center"></Slider>
+            <Button x:Name="HumiditySend" Clicked="HumiditySend_Clicked" Text="Update"></Button>
+
+            <Label Text="Soil humidity" VerticalOptions="Center"></Label>
+            <Slider x:Name="SoilSlider" Minimum="0" Maximum="100" DragCompleted="SoilSlider_DragCompleted" VerticalOptions="Center"></Slider>
+            <Button x:Name="SoilSend" Clicked="SoilSend_Clicked" Text="Update"></Button>
+            
+            <Label Text="Fan speed" VerticalOptions="Center"></Label>
+            <Slider x:Name="FanSlider" Minimum="0" Maximum="100" DragCompleted="FanSlider_DragCompleted" VerticalOptions="Center"></Slider>
+            <Button x:Name="FanSend" Clicked="FanSend_Clicked" Text="Update"></Button>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
