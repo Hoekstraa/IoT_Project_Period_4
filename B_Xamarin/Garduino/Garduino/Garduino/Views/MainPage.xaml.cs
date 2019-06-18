@@ -14,16 +14,16 @@ namespace Garduino
         public MainPage()
         {
             InitializeComponent();
-            setParameters();
+            SetParameters();
         }
 
-        void setParameters()
+        void SetParameters()
         {
             DateTime datePlanted = DateTime.Parse(Config.selectedCrop.DateSelected);
             DateTime estDone = datePlanted.AddDays(Config.selectedCrop.DaysToFinish);
 
-            datePlantedLabel.Text = datePlanted.ToString("dd-MM-yyyy") ; 
-            estDoneLabel.Text = estDone.ToString("dd-MM-yyyy") ;
+            datePlantedLabel.Text = datePlanted.ToString("dd-MM-yyyy");
+            estDoneLabel.Text = estDone.ToString("dd-MM-yyyy");
             cropImg.Source = Config.selectedCrop.ImageSource;
 
             string temp = "23";
