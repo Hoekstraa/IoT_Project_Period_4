@@ -19,12 +19,13 @@ namespace Garduino
 
         void setParameters()
         {
-            DateTime datePlanted = DateTime.Now;
-            DateTime estDone = DateTime.Today.AddDays(10);
+            DateTime datePlanted = DateTime.Parse(Config.selectedCrop.DateSelected);
+            DateTime estDone = datePlanted.AddDays(Config.selectedCrop.DaysToFinish);
 
             datePlantedLabel.Text = datePlanted.ToString("dd-MM-yyyy") ; 
-            estDoneLabel.Text = estDone.ToString("dd-MM-yyyy") ; 
-           
+            estDoneLabel.Text = estDone.ToString("dd-MM-yyyy") ;
+            cropImg.Source = Config.selectedCrop.ImageSource;
+
             string temp = "23";
             string moist = "34";
             string soil = "45";
@@ -32,7 +33,6 @@ namespace Garduino
             string ventilator = "Uit";
             string waterpomp = "Uit";
 
-            cropImg.Source = Config.selectedCrop.ImageSource;
             TempLabel.Text = temp + " °C";
             MoistLabel.Text = moist + " %";
             SoilLabel.Text = soil + " %";

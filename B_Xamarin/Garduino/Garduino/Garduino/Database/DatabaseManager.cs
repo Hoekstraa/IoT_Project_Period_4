@@ -20,10 +20,11 @@ namespace Garduino.Database
         }
 
         
-        public List<Soort> GetSoorten()
+        public Soort GetSoort(string soortnaam)
         {
-            return new List<Soort>(Connection.Query<Soort>("SELECT * FROM [Soort]")); 
+            return Connection.FindWithQuery<Soort>("SELECT * FROM [Soort] WHERE CropName = @0", soortnaam); 
         }
+
 
         public Soort GetSelectedSoort()
         {
