@@ -7,83 +7,99 @@
              x:Class="Garduino.Views.Setup_Select">
     
     <StackLayout Spacing="30">
-        <Label Text="Kies uw Groente" HorizontalOptions="Center" Font="Bold,20"/>
+        <Label Text="Kies uw Groente" HorizontalOptions="Center" Font="Bold, Italic, 30"/>
         
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="200"/>
-                <RowDefinition Height="200"/>
-                <RowDefinition Height="200"/>
-                <RowDefinition Height="200"/>
+                <RowDefinition Height="180"/>
+                <RowDefinition Height="190"/>
+                <RowDefinition Height="190"/>
+                <RowDefinition Height="190"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.5*"/>
                 <ColumnDefinition Width="0.5*"/>
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Row="0" Grid.Column="0">
-                <Label VerticalOptions="Center" HorizontalOptions="Center" Text="Komkommer:" Grid.Row="0" Grid.Column="0" />
-                <Image ClassId="Komkommer" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Source="komkommer.png">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="SelectImage_Clicked"/>
-                    </Image.GestureRecognizers>
-                </Image>
+            <Grid Grid.Row="0" Grid.Column="0" Margin="8">
+                <StackLayout>
+                    <Image ClassId="Komkommer" HeightRequest="150" WidthRequest="150"  Source="komkommer.png">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="SelectImage_Clicked"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label VerticalOptions="Center" HorizontalOptions="Center" Text="Komkommer" Font="Italic, Bold, 15"/>
+                </StackLayout>
             </Grid>
-            <Grid Grid.Row="0" Grid.Column="1">
-                <Label VerticalOptions="Center" HorizontalOptions="Center" Text="Tomaat:" Grid.Row="0" Grid.Column="1" />
-                <Image ClassId="Tomaat" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Source="tomaat.png" >
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="SelectImage_Clicked"/>
-                    </Image.GestureRecognizers>
-                </Image>
+            <Grid Grid.Row="0" Grid.Column="1" Margin="8">
+                <StackLayout>
+                    <Image ClassId="Tomaat" HeightRequest="150" WidthRequest="150" Source="tomaat.png" >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="SelectImage_Clicked"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label VerticalOptions="Center" HorizontalOptions="Center" Text="Tomaat" Font="Italic, Bold, 15"/>
+                </StackLayout>
             </Grid>
-            <Grid Grid.Row="1" Grid.Column="0">
-                <Label VerticalOptions="Center" HorizontalOptions="Center" Text="Aardappel:" Grid.Row="2" Grid.Column="0" />
-                <Image ClassId="Aardappel" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Source="aardappel.png">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="SelectImage_Clicked"/>
-                    </Image.GestureRecognizers>
-                </Image>
+            <Grid Grid.Row="1" Grid.Column="0" Margin="8">
+                <StackLayout>
+                    <Image ClassId="Aardappel" HeightRequest="150" WidthRequest="150" Source="aardappel.png">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="SelectImage_Clicked"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label VerticalOptions="Center" HorizontalOptions="Center" Text="Aardappel" Font="Italic, Bold, 15"/>
+                </StackLayout>
             </Grid>
-            <Grid Grid.Row="1" Grid.Column="1">
-                <Label VerticalOptions="Center" HorizontalOptions="Center" Text="Peterselie:" Grid.Row="2" Grid.Column="0" />
-                <Image ClassId ="Peterselie" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Source="peterselie.png">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="SelectImage_Clicked"/>
-                    </Image.GestureRecognizers>
-                </Image>
+            <Grid Grid.Row="1" Grid.Column="1" Margin="8">
+                <StackLayout>
+                    <Image ClassId ="Peterselie" HeightRequest="150" WidthRequest="150" Source="peterselie.png">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="SelectImage_Clicked"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label VerticalOptions="Center" HorizontalOptions="Center" Text="Peterselie"  Font="Italic, Bold, 15"/>
+                </StackLayout>
             </Grid>
-            <Grid Grid.Row="2" Grid.Column="0">
-                <Label VerticalOptions="Center" HorizontalOptions="Center" Text="Courgette:" Grid.Row="2" Grid.Column="1" />
-                <Image ClassId="Courgette" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Source="courgette.png">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="SelectImage_Clicked"/>
-                    </Image.GestureRecognizers>
-                </Image>
+            <Grid Grid.Row="2" Grid.Column="0" Margin="8">
+                <StackLayout>
+                    <Image ClassId="Courgette" HeightRequest="150" WidthRequest="150" Source="courgette.png">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="SelectImage_Clicked"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label VerticalOptions="Center" HorizontalOptions="Center" Text="Courgette" Font="Italic, Bold, 15"/>
+                </StackLayout>
             </Grid>
-            <Grid Grid.Row="2" Grid.Column="1">
-                <Label VerticalOptions="Center" HorizontalOptions="Center" Text="Knolraap:" Grid.Row="4" Grid.Column="0" />
-                <Image ClassId="Knolraap" VerticalOptions="Center" HorizontalOptions="Center" Source="knolraap.png">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="SelectImage_Clicked"/>
-                    </Image.GestureRecognizers>
-                </Image>
+            <Grid Grid.Row="2" Grid.Column="1" Margin="8">
+                <StackLayout>
+                    <Image ClassId="Knolraap" HeightRequest="150" WidthRequest="150" Source="knolraap.png">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="SelectImage_Clicked"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label VerticalOptions="Center" HorizontalOptions="Center" Text="Knolraap" Font="Italic, Bold, 15"/>
+                </StackLayout>
             </Grid>
-            <Grid Grid.Row="3" Grid.Column="0">
-                <Label VerticalOptions="Center" HorizontalOptions="Center" Text="Radijs:" Grid.Row="4" Grid.Column="1" />
-                <Image ClassId="Radijs" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Source="radijs.png">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="SelectImage_Clicked"/>
-                    </Image.GestureRecognizers>
-                </Image>
+            <Grid Grid.Row="3" Grid.Column="0" Margin="8">
+                <StackLayout>
+                    <Image ClassId="Radijs" HeightRequest="150" WidthRequest="150" Source="radijs.png">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="SelectImage_Clicked"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label VerticalOptions="Center" HorizontalOptions="Center" Text="Radijs" Font="Italic, Bold, 15"/>
+                </StackLayout>
             </Grid>
-            <Grid Grid.Row="3" Grid.Column="1">
-                <Label VerticalOptions="Center" HorizontalOptions="Center" Text="Paprika:" Grid.Row="6" Grid.Column="0" />
-                <Image ClassId="Paprika" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Source="paprika.png">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="SelectImage_Clicked"/>
-                    </Image.GestureRecognizers>
-                </Image>
+            <Grid Grid.Row="3" Grid.Column="1" Margin="8">
+                <StackLayout>
+                    <Image ClassId="Paprika" HeightRequest="150" WidthRequest="150" Source="paprika.png">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="SelectImage_Clicked"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label VerticalOptions="Center" HorizontalOptions="Center" Text="Paprika" Font="Italic, Bold, 15"/>
+                </StackLayout>
             </Grid>
 
         </Grid>

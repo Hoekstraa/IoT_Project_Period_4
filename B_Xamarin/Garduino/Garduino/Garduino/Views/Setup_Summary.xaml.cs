@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Garduino.Database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace Garduino.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Setup_Summary : ContentPage
     {
+        DatabaseManager db = new DatabaseManager(); 
         public Setup_Summary()
         {
             InitializeComponent();
@@ -20,6 +22,7 @@ namespace Garduino.Views
 
         void SetSummary()
         {
+            cropImg.Source = Config.selectedCrop.ImageSource; 
             CropNameLabel.Text = Config.selectedCrop.CropName;
             SelectedLabel.Text = Config.selectedCrop.Selected.ToString();
             DateSelectedLabel.Text = Config.selectedCrop.DateSelected;
@@ -38,6 +41,8 @@ namespace Garduino.Views
 
         private void Confrim_Clicked(object sender, EventArgs e)
         {
+            Config.selectedCrop.Selected = 1;
+            db.AddOrUpdateStartValues(Config.selectedCrop);
             Application.Current.MainPage = new MasterPage(); 
         }
 
