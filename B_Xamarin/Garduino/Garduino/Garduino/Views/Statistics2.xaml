@@ -13,20 +13,16 @@
                     <ColumnDefinition Width="0.25*"/>
                     <ColumnDefinition Width="0.25*"/>
                 </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Grid.Row="1" Height="300"></RowDefinition>
-                    <RowDefinition Grid.Row="2" Height="300"></RowDefinition>
-                    <RowDefinition Grid.Row="3" Height="300"></RowDefinition>
-                    <RowDefinition Grid.Row="4" Height="300"></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0" Grid.Column="0">
+             
+                <Grid  Grid.Column="0">
                     <StackLayout>
+                         <Label Text="Date/Time"></Label>
                         <ListView x:Name="DateTimeList">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>
                                         <StackLayout>
-                                            <Label Text="Date/Time"></Label>
+                                           
                                             <Label Text="{Binding DateTime}"></Label>
                                         </StackLayout>
                                     </ViewCell>
@@ -36,14 +32,14 @@
                     </StackLayout>
                 </Grid>
 
-                <Grid Grid.Row="1" Grid.Column="1">
+                <Grid Grid.Column="1">
                     <StackLayout>
+                         <Label Text="Temperature"></Label>
                         <ListView x:Name="TempList">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>
                                         <StackLayout>
-                                            <Label Text="Temperature"></Label>
                                             <Label Text="{Binding Temperature}"></Label>
                                         </StackLayout>
                                     </ViewCell>
@@ -53,14 +49,15 @@
                     </StackLayout>
                 </Grid>
 
-                <Grid Grid.Row="2" Grid.Column="2">
+                <Grid  Grid.Column="2">
                     <StackLayout>
+                        <Label Text="Humidity"></Label>
                         <ListView x:Name="HumidityList">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>
                                         <StackLayout>
-                                            <Label Text="Humidity"></Label>
+                                            
                                             <Label Text="{Binding Humidity}"></Label>
                                         </StackLayout>
                                     </ViewCell>
@@ -69,14 +66,15 @@
                         </ListView>
                     </StackLayout>
                 </Grid>
-                <Grid Grid.Row="3" Grid.Column="3">
+                <Grid  Grid.Column="3">
                     <StackLayout>
+                           <Label Text="Moist"></Label>
                         <ListView x:Name="MoistList">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>
                                         <StackLayout>
-                                            <Label Text="Moist"></Label>
+                                         
                                             <Label Text="{Binding SoilMoisture}"></Label>
                                         </StackLayout>
                                     </ViewCell>
