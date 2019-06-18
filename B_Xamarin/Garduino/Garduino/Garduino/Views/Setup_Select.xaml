@@ -7,14 +7,14 @@
              x:Class="Garduino.Views.Setup_Select">
     
     <StackLayout Spacing="30">
-        <Label Text="Kies uw Groente" HorizontalOptions="Center" Font="Bold, Italic, 30"/>
+        <Label Text="Kies uw Groente" HorizontalOptions="Center" Font="Bold, Italic, 30" Margin="8"/>
         
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="180"/>
-                <RowDefinition Height="190"/>
-                <RowDefinition Height="190"/>
-                <RowDefinition Height="190"/>
+                <RowDefinition Height="180"/>
+                <RowDefinition Height="180"/>
+                <RowDefinition Height="180"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.5*"/>

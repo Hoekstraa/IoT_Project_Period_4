@@ -24,13 +24,11 @@ namespace Garduino.Views
         {
             cropImg.Source = Config.selectedCrop.ImageSource; 
             CropNameLabel.Text = Config.selectedCrop.CropName;
-            SelectedLabel.Text = Config.selectedCrop.Selected.ToString();
-            DateSelectedLabel.Text = Config.selectedCrop.DateSelected;
-            ImageSourceLabel.Text = Config.selectedCrop.ImageSource;
-            HumidityLabel.Text = Config.selectedCrop.Humidity.ToString();
-            GroundHumidityLabel.Text = Config.selectedCrop.GroundHumidity.ToString();
-            LightCycleLabel.Text = Config.selectedCrop.LightCycle.ToString();
-            WaterAmountLabel.Text = Config.selectedCrop.WaterAmount.ToString();
+            DateSelectedLabel.Text = "Begindatum: " + Config.selectedCrop.DateSelected;
+            HumidityLabel.Text = "Optimale waarde luchtvochtigheid: " + Config.selectedCrop.Humidity.ToString();
+            GroundHumidityLabel.Text = "Optimale waarde grondvochtigheid: " + Config.selectedCrop.GroundHumidity.ToString();
+            LightCycleLabel.Text = Config.selectedCrop.LightCycle.ToString() + " uren dat het licht aan staat" ;
+            WaterAmountLabel.Text = "Hoeveelheid water wat vergeven word: " + Config.selectedCrop.WaterAmount.ToString() + " ml" ;
         }
 
         private void Back_Clicked(object sender, EventArgs e)

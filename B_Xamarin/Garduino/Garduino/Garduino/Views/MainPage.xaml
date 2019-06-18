@@ -82,22 +82,34 @@
             <Grid Grid.Row="3" Grid.Column="0">
                 <StackLayout>
                     <Label Text="Licht" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
-                    <Image Source="lightbulb.png" HeightRequest="85" WidthRequest="85" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    <Image x:Name="LightImg" ClassId="light" HeightRequest="85" WidthRequest="85" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="SelectImage_Clicked"/>
+                        </Image.GestureRecognizers>
+                    </Image>
                     <Label x:Name="LightLabel" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
                 </StackLayout>
             </Grid>
             <Grid Grid.Row="3" Grid.Column="1">
                 <StackLayout>
                     <Label Text="Ventilator" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
-                    <Image Source="fan.png" HeightRequest="85" WidthRequest="85" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    <Image x:Name="FanImg" ClassId="fan" HeightRequest="85" WidthRequest="85" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="SelectImage_Clicked"/>
+                        </Image.GestureRecognizers>
+                    </Image>
                     <Label x:Name="FanLabel" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
                 </StackLayout>
             </Grid>
             <Grid Grid.Row="3" Grid.Column="2">
                 <StackLayout>
                     <Label Text="Water pomp" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
-                    <Image Source="tint.png" HeightRequest="85" WidthRequest="85" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                    <Label x:Name="WaterLabel" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
+                    <Image x:Name="PumpImg" ClassId="pump" Source="tint.png" HeightRequest="85" WidthRequest="85" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="SelectImage_Clicked"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label x:Name="PumpLabel" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
                 </StackLayout>
             </Grid>
             
