@@ -6,20 +6,23 @@
              mc:Ignorable="d"
              x:Class="Garduino.Views.Setup_Summary">
 
-    <StackLayout>
-        <Image x:Name="cropImg" HeightRequest="150"/>
-        
-        <Label x:Name="CropNameLabel"/>
-        <Label x:Name="SelectedLabel"/>
-        <Label x:Name="DateSelectedLabel"/>
-        <Label x:Name="ImageSourceLabel"/>
-        <Label x:Name="HumidityLabel"/>
-        <Label x:Name="GroundHumidityLabel"/>
-        <Label x:Name="LightCycleLabel"/>
-        <Label x:Name="WaterAmountLabel"/>
+    <StackLayout VerticalOptions="Center">
+        <Image x:Name="cropImg" HeightRequest="200"/>
+        <Label Text="Beginwaardes van het geselecteerde product" HorizontalOptions="Center" Font="Bold, 20"/>
 
-        <Button Text="Back" Clicked="Back_Clicked" VerticalOptions="Center"/>
-        <Button Text="Confrim" Clicked="Confrim_Clicked" VerticalOptions="Center"/>
+        <StackLayout Margin="20">
+            <Label x:Name="CropNameLabel" HorizontalOptions="Center" Font="Italic, Bold, 17"/>
+            <Label x:Name="DateSelectedLabel"  HorizontalOptions="Center" Font="Italic, Bold, 17"/>
+            <Label x:Name="HumidityLabel"  HorizontalOptions="Center" Font="Italic, Bold, 17"/>
+            <Label x:Name="GroundHumidityLabel"  HorizontalOptions="Center" Font="Italic, Bold, 17"/>
+            <Label x:Name="LightCycleLabel"  HorizontalOptions="Center" Font="Italic, Bold, 17"/>
+            <Label x:Name="WaterAmountLabel"  HorizontalOptions="Center" Font="Italic, Bold, 17"/>
+        </StackLayout>
+
+        <StackLayout Margin="60">
+            <Button Text="Terug" Clicked="Back_Clicked" VerticalOptions="Center" />
+            <Button Text="Accepteren" Clicked="Confrim_Clicked" VerticalOptions="Center"/>
+        </StackLayout>
     </StackLayout>
 
 </ContentPage>

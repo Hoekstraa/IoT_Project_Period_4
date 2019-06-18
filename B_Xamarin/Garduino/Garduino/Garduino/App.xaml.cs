@@ -19,6 +19,12 @@ namespace Garduino
 
         protected override void OnStart()
         {
+            Config.ControlStates = new int[3];
+
+            Config.ControlStates[0] = 1; // Get states via connection 
+            Config.ControlStates[1] = 1; // Get states via connection 
+            Config.ControlStates[2] = 0; // Get states via connection 
+
             Config.selectedCrop = db.GetSelectedSoort();
 
             if (Config.selectedCrop != null)

@@ -7,28 +7,28 @@
              x:Class="Garduino.Views.Controls">
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout HeightRequest="200">
+            <StackLayout HeightRequest="100" Padding="50">
 
                 <Label Text="Humidity" VerticalOptions="Center" HorizontalOptions="Center"></Label>
-                <Slider x:Name="HumiditySlider" Minimum="0" Maximum="100" DragCompleted="HumiditySlider_DragCompleted" VerticalOptions="Center"></Slider>
+                <Slider x:Name="HumiditySlider" Minimum="0" Maximum="100" DragCompleted="HumiditySlider_DragCompleted" ></Slider>
                 <Label Text="" x:Name="Humiditylabel" HorizontalOptions="Center"></Label>
                 <Button x:Name="HumiditySend" Clicked="HumiditySend_Clicked" Text="Update" WidthRequest="200"></Button>
                 
             </StackLayout>
 
-            <StackLayout  HeightRequest="200">
+            <StackLayout  HeightRequest="100" Padding="50" >
 
                 <Label Text="Soil humidity" VerticalOptions="Center" HorizontalOptions="Center"></Label>
-                <Slider x:Name="SoilSlider" Minimum="0" Maximum="100" DragCompleted="SoilSlider_DragCompleted" VerticalOptions="Center"></Slider>
+                <Slider x:Name="SoilSlider" Minimum="0" Maximum="100" DragCompleted="SoilSlider_DragCompleted"   ></Slider>
                 <Label Text="" x:Name="SoilLabel" HorizontalOptions="Center"></Label>
                 <Button x:Name="SoilSend" Clicked="SoilSend_Clicked" Text="Update" WidthRequest="200" ></Button>
                 
             </StackLayout>
 
-            <StackLayout  HeightRequest="200">
+            <StackLayout  HeightRequest="100" Padding="50">
                 
                 <Label Text="Fan speed" VerticalOptions="Center" HorizontalOptions="Center"></Label>
-                <Slider x:Name="FanSlider" Minimum="0" Maximum="100" DragCompleted="FanSlider_DragCompleted" VerticalOptions="Center"></Slider>
+                <Slider x:Name="FanSlider" Minimum="0" Maximum="100" DragCompleted="FanSlider_DragCompleted" ></Slider>
                 <Label Text="" x:Name="FanLabel" HorizontalOptions="Center"></Label>
                 <Button x:Name="FanSend" Clicked="FanSend_Clicked" Text="Update" WidthRequest="200"></Button>
                 
