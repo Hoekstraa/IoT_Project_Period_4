@@ -23,20 +23,20 @@ namespace Garduino.Views
 
         public void FanSlider_DragCompleted(object sender, EventArgs e)
         {
-             Fan = FanSlider.Value;
+            Fan =Math.Round(FanSlider.Value);
             FanLabel.Text =  Convert.ToString(FanSlider.Value);
 
         }
 
         public void SoilSlider_DragCompleted(object sender, EventArgs e)
         {
-            Soil = SoilSlider.Value;
+            Soil = Math.Round(SoilSlider.Value);
             SoilLabel.Text = Convert.ToString(SoilSlider.Value);
         }
 
         public void HumiditySlider_DragCompleted(object sender, EventArgs e)
         {
-            Humidity = HumiditySlider.Value;
+            Humidity = Math.Round(HumiditySlider.Value);
             Humiditylabel.Text =  Convert.ToString(HumiditySlider.Value);
         }
 
