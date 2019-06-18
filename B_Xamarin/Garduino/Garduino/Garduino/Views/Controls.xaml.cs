@@ -13,9 +13,9 @@ namespace Garduino.Views
     public partial class Controls : ContentPage
     {
 
-        private double Fan;
-        private double Soil;
-        private double Humidity;
+        private int _fan;
+        private int _soil;
+        private int _humidity;
         public Controls()
         {
             InitializeComponent();
@@ -23,37 +23,37 @@ namespace Garduino.Views
 
         public void FanSlider_DragCompleted(object sender, EventArgs e)
         {
-            Fan =Math.Round(FanSlider.Value);
-            FanLabel.Text =  Convert.ToString(Fan);
+            _fan = Convert.ToInt32(Math.Round(FanSlider.Value));
+            FanLabel.Text =  Convert.ToString(_fan);
 
         }
 
         public void SoilSlider_DragCompleted(object sender, EventArgs e)
         {
-            Soil = Math.Round(SoilSlider.Value);
+            _soil = Convert.ToInt32(Math.Round(SoilSlider.Value));
 
-            SoilLabel.Text = Convert.ToString(Soil);
+            SoilLabel.Text = Convert.ToString(_soil);
         }
 
         public void HumiditySlider_DragCompleted(object sender, EventArgs e)
         {
-            Humidity = Math.Round(HumiditySlider.Value);
-            Humiditylabel.Text =  Convert.ToString(Humidity);
+            _humidity = Convert.ToInt32(Math.Round(HumiditySlider.Value));
+            Humiditylabel.Text =  Convert.ToString(_humidity);
         }
 
         public void FanSend_Clicked(object sender, EventArgs e)
         {
-           
+            CC.Conn.Set("fan1", _fan);
         }
 
         public void SoilSend_Clicked(object sender, EventArgs e)
         {
-
+            CC.Conn.Set("gnd1", _soil);
         }
 
         public void HumiditySend_Clicked(object sender, EventArgs e)
         {
-             
+            CC.Conn.Set("hmd1", _humidity);
         }
     }
 }

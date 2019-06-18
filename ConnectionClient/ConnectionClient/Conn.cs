@@ -7,15 +7,13 @@ namespace CC
 {
     public class Conn
     {
-        public static string Get(string thing)
-        {
-            return SendString(string.Concat("get ", thing, "\n"));
-        }
+        public static string Get(string thing) =>
+            SendString(string.Concat("get ", thing, "\n"));
+        
 
-        public static string Set(string thing, int value)
-        {
-            return SendString(string.Concat("set ", thing, " ", value, "\n"));
-        }
+        public static string Set(string thing, int value) =>
+            SendString(string.Concat("set ", thing, " ", value, "\n"));
+        
         
         /// <summary>
         /// Send a string to the server.
