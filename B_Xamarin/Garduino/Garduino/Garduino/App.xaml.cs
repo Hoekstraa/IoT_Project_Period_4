@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml; 
 
+    
 namespace Garduino
 {
     public partial class App : Application
@@ -19,12 +20,11 @@ namespace Garduino
 
         protected override void OnStart()
         {
+            // Get states of arduino for start-up
             Config.ControlStates = new int[3];
+            Config.ControlStates = Config.GetStates();
 
-            Config.ControlStates[0] = 1; // Get states via connection 
-            Config.ControlStates[1] = 1; // Get states via connection 
-            Config.ControlStates[2] = 0; // Get states via connection 
-
+            // Get selected soort 
             Config.selectedCrop = db.GetSelectedSoort();
 
             if (Config.selectedCrop != null)
