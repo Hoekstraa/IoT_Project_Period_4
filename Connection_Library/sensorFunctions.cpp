@@ -25,7 +25,7 @@ AnalogSensor::AnalogSensor (int pin) {
   this->pin = pin;
 }
 
-int AnalogSensor::state() {
+int AnalogSensor::State() {
   return map(analogRead(pin), 1023, 200, 0, 100);
 }
 

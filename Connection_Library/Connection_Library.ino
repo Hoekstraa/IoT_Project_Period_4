@@ -13,8 +13,10 @@ auto Pump = new Actuator(6);
 auto Light = new Actuator(9);
 auto Fan = new Actuator(8);
 
-auto gnd1 = new AnalogSensor(1);
-auto gnd2 = new AnalogSensor(2);
+auto Gnd1 = new AnalogSensor(1);
+auto Gnd2 = new AnalogSensor(2);
+auto Hmd = new AnalogSensor(3);
+auto Tmp = new AnalogSensor(4);
 
 // return string is for reply to client.
 String handleRequest(Request *req)
@@ -28,6 +30,8 @@ String handleRequest(Request *req)
     if (t == "state[0]") return String(Light->State()); // light
     if (t == "state[1]") return String(Fan->State()); // fan
     if (t == "state[2]") return String(Pump->State()); // pump
+    if (t == "gnd") return String(Gnd1->State());
+    if (t == "hmd") return String(Hmd->State());
   }
   if (req->type == "set") {
     if (req->value == 1) {
@@ -41,7 +45,6 @@ String handleRequest(Request *req)
       if (t == "state[2]") return Pump->TurnOff(); // pump
     }
   }
-
   return "invalid request";
 }
 
@@ -55,4 +58,5 @@ void setup() {
 
 void loop() {
   connection.Listen(handleRequest);
+  //automatics();
 }

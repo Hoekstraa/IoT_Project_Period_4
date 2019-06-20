@@ -22,7 +22,7 @@ class AnalogSensor {
     int pin;
   public:
     AnalogSensor(int pin);
-    int state();
+    int State();
 };
 
 #endif

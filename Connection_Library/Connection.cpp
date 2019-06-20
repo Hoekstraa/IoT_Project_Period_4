@@ -25,6 +25,8 @@ Connection::Listen(String (*callback)(Request *req)) {
     char received = client.read();
     appendChar(_dataRec, received);
 
+    if (strlen(_dataRec) > 29){_server.println("message too long"); client.stop(); break;} //When buffer size limit has been reached, just stop the connection and exit.
+    
     // When the end of message appears, do the callback.
     if (received == '\n') {
       Serial.println("Data Received:");
@@ -37,7 +39,7 @@ Connection::Listen(String (*callback)(Request *req)) {
       Serial.println(result);
       _server.println(result); // Return result of callback to client.
       strcpy(_dataRec, "");
-      //client.stop();
+      client.stop();
     }
   }
 }
