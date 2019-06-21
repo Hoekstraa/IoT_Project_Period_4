@@ -1,11 +1,15 @@
 #include "Connection.h"
 #include <Ethernet.h>
 
+/// Makes Connection, with server started.
 Connection::Connection(int port) : _server(port) {
   _server.begin();
 }
 
-//WARNING: Does not check if appending will go out of range of char* s!
+/// \brief Concatenates a char to a (char pointer) string
+///WARNING: This function by itself does not check if appending will go out of range of char* s!
+/// \param s String to append a char to.
+/// \param c Char to append to string s.
 Connection::appendChar(char* s, char c)
 {
   int len = strlen(s);
@@ -13,7 +17,8 @@ Connection::appendChar(char* s, char c)
   s[len + 1] = '\0';
 }
 
-// If a client is connected, collect the string sent and run the callback function on the string.
+/// If a client is connected, collect the string sent and run the callback function on the string.
+/// \param callback Function pointer to a callback that parses and reacts to all Requests.
 Connection::Listen(String (*callback)(Request *req)) {
   char _dataRec[30];
   memset(&_dataRec[0], 0, sizeof(_dataRec)); //clear char array for later reuse
@@ -44,7 +49,9 @@ Connection::Listen(String (*callback)(Request *req)) {
   }
 }
 
-// turns string into a Request object.
+/// Turns a string into a Request object.
+/// If the string is not valid, it returns a Request of type "invalid".
+/// \param str String to parse.
 Request* Connection::parseString(char* str) {
   Request* req = new Request();
   const String ss = String(str);

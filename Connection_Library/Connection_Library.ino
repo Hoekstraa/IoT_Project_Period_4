@@ -9,21 +9,19 @@ IPAddress ip (192, 168, 1, 10);
 
 Connection connection(port);
 
-auto Pump = new Actuator(6);
-auto Light = new Actuator(9);
-auto Fan = new Actuator(8);
+auto Pump = new Actuator(3);
+auto Light = new Actuator(2);
+auto Fan = new Actuator(4);
 
-auto Gnd1 = new AnalogSensor(1);
-auto Gnd2 = new AnalogSensor(2);
-auto Hmd = new AnalogSensor(3);
-auto Tmp = new AnalogSensor(4);
+auto Gnd1 = new AnalogSensor(4);
+auto Gnd2 = new AnalogSensor(5);
+auto Hmd = new AnalogSensor(1);
+//auto Tmp = new AnalogSensor(4);
 
-// return string is for reply to client.
+/// Callback function handling the Request objects
+/// \return String is for reply to client.
 String handleRequest(Request *req)
 {
-  //  if (req->type != "get" && req->type != "set") {
-  //    return "invalid";
-  //  }
   String t = req->thing;
 
   if (req->type == "get") {
@@ -35,27 +33,38 @@ String handleRequest(Request *req)
   }
   if (req->type == "set") {
     if (req->value == 1) {
-      if (t == "state[0]") return Light->TurnOn(); // light
-      if (t == "state[1]") return Fan->TurnOn(); // fan
-      if (t == "state[2]") return Pump->TurnOn(); // pump
+      if (t == "state[0]") return Light->ManualOn(); // light
+      if (t == "state[1]") return Fan->ManualOn(); // fan
+      if (t == "state[2]") return Pump->ManualOn(); // pump
     }
     else {
-      if (t == "state[0]") return Light->TurnOff(); // light
-      if (t == "state[1]") return Fan->TurnOff(); // fan
-      if (t == "state[2]") return Pump->TurnOff(); // pump
+      if (t == "state[0]") return Light->ManualOff(); // light
+      if (t == "state[1]") return Fan->ManualOff(); // fan
+      if (t == "state[2]") return Pump->ManualOff(); // pump
     }
   }
   return "invalid request";
 }
 
+/// Checks if plants need something
+///   and subsequently turns on an actuator 'till the need has been satisfied.
+void automatics()
+{
+  int groundMoistnessMinimum = 70;
+  int airHumidityMaximum = 10;
+  
+  if (Gnd1->State() < groundMoistnessMinimum || Pump->manualOn == 1) Pump->TurnOn(); else Pump->TurnOff();
+  if (Hmd->State() > airHumidityMaximum || Fan->manualOn == 1) Fan->TurnOn(); else Fan->TurnOff();
+}
+
+/// Initialises Ethernet and Serial
 void setup() {
   Ethernet.begin(mac, ip, {172, 16, 0, 1}, {255, 255, 0, 0});
   // Only enable this if it's necessary. Writing to Serial slows down the whole proces.
   Serial.begin(230400);
-  //Serial.println("Connected to serial");
-  //Serial.println("Starting listening");
 }
 
+/// Main loop
 void loop() {
   connection.Listen(handleRequest);
   //automatics();
