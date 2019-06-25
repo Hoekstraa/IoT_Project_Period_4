@@ -17,13 +17,13 @@ String Actuator::TurnOn() {
 
 /// Tells the object to turn on. Used from the app.
 String Actuator::ManualOn() {
-  this->manualOn == true;
+  this->manualOn  = true;
   return "succes";
 }
 
 /// Tells the object to turn off. Used from the app.
 String Actuator::ManualOff() {
-  this->manualOn == false;
+  this->manualOn  = false;
   return "succes";
 }
 

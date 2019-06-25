@@ -25,22 +25,22 @@ String handleRequest(Request *req)
   String t = req->thing;
 
   if (req->type == "get") {
-    if (t == "state[0]") return String(Light->State()); // light
-    if (t == "state[1]") return String(Fan->State()); // fan
-    if (t == "state[2]") return String(Pump->State()); // pump
+    if (t == "light") return String(Light->State()); // light
+    if (t == "fan") return String(Fan->State()); // fan
+    if (t == "pump") return String(Pump->State()); // pump
     if (t == "gnd") return String(Gnd1->State());
     if (t == "hmd") return String(Hmd->State());
   }
   if (req->type == "set") {
     if (req->value == 1) {
-      if (t == "state[0]") return Light->ManualOn(); // light
-      if (t == "state[1]") return Fan->ManualOn(); // fan
-      if (t == "state[2]") return Pump->ManualOn(); // pump
+      if (t == "light") return Light->ManualOn(); // light
+      if (t == "fan") return Fan->ManualOn(); // fan
+      if (t == "pump") return Pump->ManualOn(); // pump
     }
     else {
-      if (t == "state[0]") return Light->ManualOff(); // light
-      if (t == "state[1]") return Fan->ManualOff(); // fan
-      if (t == "state[2]") return Pump->ManualOff(); // pump
+      if (t == "light") return Light->ManualOff(); // light
+      if (t == "fan") return Fan->ManualOff(); // fan
+      if (t == "pump") return Pump->ManualOff(); // pump
     }
   }
   return "invalid request";
@@ -50,11 +50,12 @@ String handleRequest(Request *req)
 ///   and subsequently turns on an actuator 'till the need has been satisfied.
 void automatics()
 {
-  int groundMoistnessMinimum = 70;
-  int airHumidityMaximum = 10;
-  
-  if (Gnd1->State() < groundMoistnessMinimum || Pump->manualOn == 1) Pump->TurnOn(); else Pump->TurnOff();
-  if (Hmd->State() > airHumidityMaximum || Fan->manualOn == 1) Fan->TurnOn(); else Fan->TurnOff();
+  int groundMoistnessMinimum = 60;
+  int airHumidityMaximum = 80;
+  //int lampTime = 0;
+  if (Gnd1->State() < groundMoistnessMinimum || Pump->manualOn) {Pump->TurnOn();} else {Pump->TurnOff();}
+  if (Hmd->State() > airHumidityMaximum || Fan->manualOn) Fan->TurnOn(); else Fan->TurnOff();
+  if (Light->manualOn) Light->TurnOn(); else Light->TurnOff();
 }
 
 /// Initialises Ethernet and Serial
@@ -67,5 +68,5 @@ void setup() {
 /// Main loop
 void loop() {
   connection.Listen(handleRequest);
-  //automatics();
+  automatics();
 }

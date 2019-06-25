@@ -20,7 +20,7 @@ class Actuator {
     String ManualOn();
     String ManualOff();
 
-    bool manualOn;
+    bool manualOn = false;
 };
 
 /// Relays data from real-life analog sensors.
