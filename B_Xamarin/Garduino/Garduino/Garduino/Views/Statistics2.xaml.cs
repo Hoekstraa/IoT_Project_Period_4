@@ -14,14 +14,16 @@ namespace Garduino.Views
     public partial class Statistics2 : ContentPage
     {
         DatabaseManager databaseManager = new DatabaseManager();
-
+        
         public Statistics2()
         {
             InitializeComponent();
-            DateTimeList.ItemsSource = databaseManager.GetDate();
-            TempList.ItemsSource = databaseManager.GetTemp();
-            HumidityList.ItemsSource = databaseManager.GetHumidity();
-            MoistList.ItemsSource = databaseManager.GetMoist();
+            
+             DateTimeList.ItemsSource = databaseManager.GetAll(); 
+             TempList.ItemsSource=  databaseManager.GetAll();
+             HumidityList.ItemsSource = databaseManager.GetAll();
+             MoistList.ItemsSource = databaseManager.GetAll();
+
 
         }
     }
