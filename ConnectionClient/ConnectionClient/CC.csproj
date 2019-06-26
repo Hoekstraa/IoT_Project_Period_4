@@ -4,4 +4,9 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microcharts" Version="0.8.5-pre" />
+    <PackageReference Include="Microcharts.Forms" Version="0.8.5-pre" />
+  </ItemGroup>
+
 </Project>

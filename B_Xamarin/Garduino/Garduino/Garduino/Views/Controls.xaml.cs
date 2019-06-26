@@ -12,7 +12,7 @@ namespace Garduino.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Controls : ContentPage
     {
-
+        
         private int _fan;
         private int _soil;
         private int _humidity;
