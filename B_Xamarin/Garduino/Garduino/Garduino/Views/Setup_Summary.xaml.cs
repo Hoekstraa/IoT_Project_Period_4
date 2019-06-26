@@ -41,7 +41,15 @@ namespace Garduino.Views
         {
             Config.selectedCrop.Selected = 1;
             db.AddOrUpdateStartValues(Config.selectedCrop);
+            SetStartValues();
             Application.Current.MainPage = new MasterPage(); 
+        }
+
+        private void SetStartValues()
+        {
+            CC.Conn.Set("light_lenght", Config.selectedCrop.LightCycle);
+            CC.Conn.Set("humidity_max", Config.selectedCrop.Humidity);
+            CC.Conn.Set("moistness_min", Config.selectedCrop.GroundHumidity);
         }
 
 

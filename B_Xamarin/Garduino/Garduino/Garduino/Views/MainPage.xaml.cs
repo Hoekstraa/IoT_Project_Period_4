@@ -33,7 +33,7 @@ namespace Garduino
 
             // Get and set sensorvalues
 
-            Device.StartTimer(TimeSpan.FromSeconds(30), () =>
+            Device.StartTimer(TimeSpan.FromSeconds(5), () =>
             {
                 SetSensorValues();
                 return true; 
@@ -60,49 +60,47 @@ namespace Garduino
             // Gets name of selected crop
             var buttonSender = (Image)sender;
             string buttonName = buttonSender.ClassId;
-            int []stateArray = Config.GetStates();
-
 
             if (buttonName == "light")
             {
                 // Connection toggle light
                 // Connection change state 
-                if (stateArray[0] == 0)//if off turn on 
+                if (Config.GetStateLight() == 0)//if off turn on 
                 {
-                    CC.Conn.Set("state[0]", 1);
+                    CC.Conn.Set("light", 1);
                     Config.ControlStates[0] = 1;
                 }
                 else // if on turn off
                 {
-                    CC.Conn.Set("state[0]", 0);
+                    CC.Conn.Set("light", 0);
                     Config.ControlStates[0] = 0;
                 }
                 SetLightImage();
             }
             else if (buttonName == "fan")
             {
-                if (stateArray[1] == 0)
+                if (Config.GetStateFan() == 0)
                 {
-                    CC.Conn.Set("state[1]", 1);
+                    CC.Conn.Set("fan", 1);
                     Config.ControlStates[1] = 1;
                 }
                 else
                 {
-                    CC.Conn.Set("state[1]", 0);
+                    CC.Conn.Set("fan", 0);
                     Config.ControlStates[1] = 0;
                 }
                 SetFanImage();
             }
             else if(buttonName == "pump")
             {
-                if (stateArray[2] == 0)
+                if (Config.GetStatePump() == 0)
                 {
-                    CC.Conn.Set("state[2]", 1);
+                    CC.Conn.Set("pump", 1);
                     Config.ControlStates[2] = 1;
                 }
                 else
                 {
-                    CC.Conn.Set("state[2]", 0);
+                    CC.Conn.Set("pump", 0);
                     Config.ControlStates[2] = 0;
                 }
                 SetPumpImage();

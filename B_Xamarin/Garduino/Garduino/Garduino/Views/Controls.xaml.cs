@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Garduino.Database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,25 +14,28 @@ namespace Garduino.Views
     public partial class Controls : ContentPage
     {
 
-        private int _fan;
+        private int _wateramount;
         private int _soil;
         private int _humidity;
+
+        DatabaseManager db = new DatabaseManager(); 
         public Controls()
         {
             InitializeComponent();
+            SetLabels(); 
         }
 
-        public void FanSlider_DragCompleted(object sender, EventArgs e)
+        private void SetLabels()
         {
-            _fan = Convert.ToInt32(Math.Round(FanSlider.Value));
-            FanLabel.Text =  Convert.ToString(_fan);
-
+            HumidityLabel.Text = "Luchtvochtigheid is ingesteld op: " + Config.selectedCrop.Humidity + " %"; 
+            GroundHumidityLabel.Text = "Bodem vocht is ingesteld op: " + Config.selectedCrop.GroundHumidity + " %"; 
+            LightCycle.Text = "Het aantal minuten licht per dag: " + Config.selectedCrop.LightCycle; 
         }
+
 
         public void SoilSlider_DragCompleted(object sender, EventArgs e)
         {
             _soil = Convert.ToInt32(Math.Round(SoilSlider.Value));
-
             SoilLabel.Text = Convert.ToString(_soil);
         }
 
@@ -41,19 +45,30 @@ namespace Garduino.Views
             Humiditylabel.Text =  Convert.ToString(_humidity);
         }
 
-        public void FanSend_Clicked(object sender, EventArgs e)
-        {
-            CC.Conn.Set("fan1", _fan);
-        }
 
         public void SoilSend_Clicked(object sender, EventArgs e)
         {
-            CC.Conn.Set("gnd1", _soil);
+            Config.selectedCrop.GroundHumidity = _soil;
+            SetLabels();
+            db.AddOrUpdateStartValues(Config.selectedCrop);
+            CC.Conn.Set("moistness_min", _soil);
         }
 
         public void HumiditySend_Clicked(object sender, EventArgs e)
         {
-            CC.Conn.Set("hmd1", _humidity);
+            Config.selectedCrop.Humidity = _humidity;
+            SetLabels();
+            db.AddOrUpdateStartValues(Config.selectedCrop);
+            CC.Conn.Set("humidity_max", _humidity);
+        }
+
+        private void LichtCycle_Clicked(object sender, EventArgs e)
+        {
+            int lightcycle = Convert.ToInt32(lightCycleEntry.Text); 
+            Config.selectedCrop.LightCycle= lightcycle;
+            SetLabels();
+            db.AddOrUpdateStartValues(Config.selectedCrop);
+            CC.Conn.Set("light_lenght", lightcycle);
         }
     }
 }

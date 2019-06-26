@@ -29,11 +29,31 @@ namespace Garduino
             //{
             //    stateArray[i] = Convert.ToInt32(CC.Conn.Get("state[" + i + "]"));
             //}
-            stateArray[0] = Convert.ToInt32(CC.Conn.Get("state[0]"));
-            stateArray[1] = Convert.ToInt32(CC.Conn.Get("state[1]"));
-            stateArray[2] = Convert.ToInt32(CC.Conn.Get("state[2]"));
+            string light = CC.Conn.Get("light");
+            string fan = CC.Conn.Get("fan");
+            string pump = CC.Conn.Get("pump");
+
+            stateArray[0] = Convert.ToInt32(light.Trim());
+            stateArray[1] = Convert.ToInt32(fan.Trim());
+            stateArray[2] = Convert.ToInt32(pump.Trim());
 
             return stateArray; 
+        }
+
+        public static int GetStateLight()
+        {
+            string light = CC.Conn.Get("light");
+            return Convert.ToInt32(light.Trim());
+        }
+        public static int GetStateFan()
+        {
+            string fan = CC.Conn.Get("fan");
+            return Convert.ToInt32(fan.Trim());
+        }
+        public static int GetStatePump()
+        {
+            string pump = CC.Conn.Get("pump");
+            return Convert.ToInt32(pump.Trim());
         }
     }
 }
