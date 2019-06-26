@@ -10,7 +10,7 @@ Connection::Connection(int port) : _server(port) {
 ///WARNING: This function by itself does not check if appending will go out of range of char* s!
 /// \param s String to append a char to.
 /// \param c Char to append to string s.
-Connection::appendChar(char* s, char c)
+void Connection::appendChar(char* s, char c)
 {
   int len = strlen(s);
   s[len] = c;
@@ -19,7 +19,7 @@ Connection::appendChar(char* s, char c)
 
 /// If a client is connected, collect the string sent and run the callback function on the string.
 /// \param callback Function pointer to a callback that parses and reacts to all Requests.
-Connection::Listen(String (*callback)(Request *req)) {
+void Connection::Listen(String (*callback)(Request *req)) {
   char _dataRec[30];
   memset(&_dataRec[0], 0, sizeof(_dataRec)); //clear char array for later reuse
 
@@ -37,9 +37,9 @@ Connection::Listen(String (*callback)(Request *req)) {
       Serial.println("Data Received:");
       Serial.print(_dataRec);
       //Serial.println("Callback calculating..");
-      Request* req;
+      //Request* req;
       String result = callback(parseString(_dataRec));
-      delete req; // Needed to clear the result type for next time a client connects
+      //delete req; // Needed to clear the result type for next time a client connects
       Serial.println("result:");
       Serial.println(result);
       _server.println(result); // Return result of callback to client.

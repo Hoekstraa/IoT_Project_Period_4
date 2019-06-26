@@ -18,20 +18,20 @@ String Actuator::TurnOn() {
 /// Tells the object to turn on. Used from the app.
 String Actuator::ManualOn() {
   this->manualOn  = true;
-  return "succes";
+  return "success";
 }
 
 /// Tells the object to turn off. Used from the app.
 String Actuator::ManualOff() {
   this->manualOn  = false;
-  return "succes";
+  return "success";
 }
 
 /// Turns off real-life actuator.
 String Actuator::TurnOff() {
   digitalWrite(pin, LOW);
   this->state = 0;
-  return "succes";
+  return "success";
 }
 
 /// Returns the real-life state of the actuator.

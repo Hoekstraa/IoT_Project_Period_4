@@ -29,8 +29,8 @@ class Connection {
     Connection(int port);
 
     // Methods
-    Listen(String (*callback)(Request *req)); //Listens for connections, pushing strings forwards to a callback
-    appendChar(char* s, char c);
+    void Listen(String (*callback)(Request *req)); //Listens for connections, pushing strings forwards to a callback
+    void appendChar(char* s, char c);
 
   private:
     /// Underlying connection handler
