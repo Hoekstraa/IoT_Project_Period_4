@@ -51,11 +51,11 @@ void updateDht() {
 
 /// Callback function handling the Request objects
 /// \return String is for reply to client.
-String handleRequest(Request *req)
+String handleRequest(const Request& req)
 {
-  String t = req->thing;
+  String t = req.thing;
 
-  if (req->type == "get") {
+  if (req.type == "get") {
     if (t == "light") return String(g::Light->State()); // light
     if (t == "fan")   return String(g::Fan->State()); // fan
     if (t == "pump")  return String(g::Pump->State()); // pump
@@ -63,25 +63,25 @@ String handleRequest(Request *req)
     if (t == "hmd")   return String(g::dhtHumid);
     if (t == "tmp")   return String(g::dhtTemp);
   }
-  if (req->type == "set") {
-    if (t == "light" && req->value == 1) return g::Light->ManualOn();
-    if (t == "fan" && req->value == 1)   return g::Fan->ManualOn();
-    if (t == "pump" && req->value == 1)  return g::Pump->ManualOn();
-    if (t == "light" && req->value == 0) return g::Light->ManualOff();
-    if (t == "fan" && req->value == 0)   return g::Fan->ManualOff();
-    if (t == "pump" && req->value == 0)  return g::Pump->ManualOff();
+  if (req.type == "set") {
+    if (t == "light" && req.value == 1) return g::Light->ManualOn();
+    if (t == "fan" && req.value == 1)   return g::Fan->ManualOn();
+    if (t == "pump" && req.value == 1)  return g::Pump->ManualOn();
+    if (t == "light" && req.value == 0) return g::Light->ManualOff();
+    if (t == "fan" && req.value == 0)   return g::Fan->ManualOff();
+    if (t == "pump" && req.value == 0)  return g::Pump->ManualOff();
 
     // set bars
     if (t == "light_length") {
-      g::lightLength = req->value;
+      g::lightLength = req.value;
       return "success";
     };
     if (t == "moistness_min") {
-      g::moistnessMin = req->value;
+      g::moistnessMin = req.value;
       return "success";
     };
     if (t == "humidity_max") {
-      g::humidityMax = req->value;
+      g::humidityMax = req.value;
       return "success";
     };
   }

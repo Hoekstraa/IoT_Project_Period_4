@@ -19,7 +19,7 @@ void Connection::appendChar(char* s, char c)
 
 /// If a client is connected, collect the string sent and run the callback function on the string.
 /// \param callback Function pointer to a callback that parses and reacts to all Requests.
-void Connection::Listen(String (*callback)(Request *req)) {
+void Connection::Listen(String (*callback)(const Request& req)) {
   char _dataRec[30];
   memset(&_dataRec[0], 0, sizeof(_dataRec)); //clear char array for later reuse
 
@@ -34,11 +34,30 @@ void Connection::Listen(String (*callback)(Request *req)) {
     
     // When the end of message appears, do the callback.
     if (received == '\n') {
+      
+      ///////////////// Start of debugging ////////////////
+      
       Serial.println("Data Received:");
       Serial.print(_dataRec);
-      const String result = callback(parseString(_dataRec));
-      Serial.println("result:");
+
+      
+      Request currentRequest = parseString(_dataRec);
+      Serial.println("Current request values:");
+      Serial.println("Type:");
+      Serial.println(currentRequest.type);
+      Serial.println("Thing:");
+      Serial.println(currentRequest.thing);
+      Serial.println("Value:");
+      Serial.println(currentRequest.value);
+      
+      
+      const String result = callback(currentRequest);
+      Serial.println("Callback result:");
       Serial.println(result);
+
+
+      //////////////// End of debugging ////////////////
+      
       _server.println(result); // Return result of callback to client.
       //strcpy(_dataRec, "");
       client.stop();
@@ -49,25 +68,25 @@ void Connection::Listen(String (*callback)(Request *req)) {
 /// Turns a string into a Request object.
 /// If the string is not valid, it returns a Request of type "invalid".
 /// \param str String to parse.
-Request* Connection::parseString(char* str) {
-  Request* req = new Request();
+Request Connection::parseString(char* str) {
+  Request req;
   const String ss = String(str);
 
-  req->type = "invalid";
+  req.type = "invalid";
 
   if (ss.startsWith("get ")) {
-    req->type = "get";
-    req->thing = ss.substring(4); //Remove "get " from the string, the rest should be the thing to get.
-    req->thing.trim(); //Remove trailing newline, for easy front-end use.
+    req.type = "get";
+    req.thing = ss.substring(4); //Remove "get " from the string, the rest should be the thing to get.
+    req.thing.trim(); //Remove trailing newline, for easy front-end use.
   }
   else if (ss.startsWith("set ")) {
-    req->type = "set";
+    req.type = "set";
     const String sss = ss.substring(4);
     //Serial.println(sss.indexOf(' '));
     if (sss.indexOf(' ') != 0) { // Another space char exists in the string.
-      req->thing = sss.substring(0, sss.indexOf(' ')); // Get the string between 'set' and the second space. And make a copy of it.
+      req.thing = sss.substring(0, sss.indexOf(' ')); // Get the string between 'set' and the second space. And make a copy of it.
       //Serial.println("thing: " + req->thing);
-      req->value = sss.substring(sss.indexOf(' ') + 1).toInt(); //Get the string after the space, interpret as an int.
+      req.value = sss.substring(sss.indexOf(' ') + 1).toInt(); //Get the string after the space, interpret as an int.
       //Serial.println(req->value);
     }
   }
