@@ -24,10 +24,10 @@ class Actuator {
 };
 
 /// Relays data from real-life analog sensors.
-class AnalogSensor {
+class GroundSensor {
     int pin;
   public:
-    AnalogSensor(int pin);
+    GroundSensor(int pin);
     int State();
 };
 

@@ -40,13 +40,16 @@ String Actuator::State() {
 }
 
 /// Initializes a sensor.
-AnalogSensor::AnalogSensor (int pin) {
+GroundSensor::GroundSensor (int pin) {
   this->pin = pin;
 }
 
 /// Maps values read from the sensor to 0 - 100.
-int AnalogSensor::State() {
-  return map(analogRead(pin), 1023, 200, 0, 100);
+int GroundSensor::State() {
+  int x = map(analogRead(pin), 600, 190, 0, 100);
+  if(x >= 0 && x <= 100) return x;
+  if(x < 0) return 0;
+  if(x > 100) return 100;
 }
 
 /// Parses a Request and applies the Request to the Actuator.

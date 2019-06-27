@@ -29,13 +29,13 @@ class Connection {
     Connection(int port);
 
     // Methods
-    void Listen(String (*callback)(Request *req)); //Listens for connections, pushing strings forwards to a callback
+    void Listen(String (*callback)(const Request& req)); //Listens for connections, pushing strings forwards to a callback
     void appendChar(char* s, char c);
 
   private:
     /// Underlying connection handler
     EthernetServer _server;
-    Request* parseString(char* str);
+    Request parseString(char* str);
 };
 
 #endif
