@@ -5,7 +5,7 @@ using System.Text;
 using SQLite;
 using Xamarin.Forms;
 using Garduino.Models;
-
+using CC;
 
 namespace Garduino.Database
 {
@@ -48,21 +48,16 @@ namespace Garduino.Database
             return (from m in Connection.Table<Soort>() select m.CropName).Any(Equal);
         }
          
-        public List<SensorValues> GetDate()
-        {
-            return new List<SensorValues>(Connection.Query<SensorValues>("Select DateTime From SensorValues"));
-        }
+       
         public List<SensorValues> GetAll()
         {
             return new List<SensorValues>(Connection.Query<SensorValues>("Select * From SensorValues"));
         }
-        public List<SensorValues> GetHumidity()
+
+        public void addValues(string datetime, int temperature, int humidity, int soilMoisture)
         {
-            return new List<SensorValues>(Connection.Query<SensorValues>("Select Humidity From SensorValues"));
+            Connection.Insert(new SensorValues { DateTime = datetime, Temperature = temperature, Humidity = humidity, SoilMoisture = soilMoisture });
         }
-        public List<SensorValues> GetMoist()
-        {
-            return new List<SensorValues>(Connection.Query<SensorValues>("Select SoilMoisture From SensorValues"));
-        }
+        
     }
 }
