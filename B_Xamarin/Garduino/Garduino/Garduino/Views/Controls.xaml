@@ -5,35 +5,53 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Garduino.Views.Controls">
-    <ContentPage.Content>
-        <StackLayout>
-            <StackLayout HeightRequest="100" Padding="50">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/> 
+            <RowDefinition Height="*"/> 
+        </Grid.RowDefinitions>
 
-                <Label Text="Humidity" VerticalOptions="Center" HorizontalOptions="Center"></Label>
-                <Slider x:Name="HumiditySlider" Minimum="0" Maximum="100" DragCompleted="HumiditySlider_DragCompleted" ></Slider>
-                <Label Text="" x:Name="Humiditylabel" HorizontalOptions="Center"></Label>
-                <Button x:Name="HumiditySend" Clicked="HumiditySend_Clicked" Text="Update" WidthRequest="200"></Button>
-                
+        <Grid Grid.Row="0">
+            <StackLayout Margin="8">
+                <Label Text="De huidige sensorwaardes zijn: " HorizontalOptions="Center" Font="Italic, Bold, 17"/>
+                <Label Text="  "/>
+                <Label x:Name="HumidityLabel" HorizontalOptions="Center"/>
+                <Label x:Name="GroundHumidityLabel" HorizontalOptions="Center"/>
+                <Label x:Name="LightCycle" HorizontalOptions="Center"/>
             </StackLayout>
+        </Grid>
 
-            <StackLayout  HeightRequest="100" Padding="50" >
+        
+        <Grid Grid.Row="1">
+            <StackLayout>
 
-                <Label Text="Soil humidity" VerticalOptions="Center" HorizontalOptions="Center"></Label>
-                <Slider x:Name="SoilSlider" Minimum="0" Maximum="100" DragCompleted="SoilSlider_DragCompleted"   ></Slider>
-                <Label Text="" x:Name="SoilLabel" HorizontalOptions="Center"></Label>
-                <Button x:Name="SoilSend" Clicked="SoilSend_Clicked" Text="Update" WidthRequest="200" ></Button>
-                
+                <StackLayout  HeightRequest="100" Padding="20">
+
+                    <Label Text="Aantal minuten licht " VerticalOptions="Center" HorizontalOptions="Center"/>
+                    <Entry x:Name="lightCycleEntry" Keyboard="Numeric" WidthRequest="100" />
+                    <Label Text="" x:Name="FanLabel" HorizontalOptions="Center"/>
+                    <Button Clicked="LichtCycle_Clicked" Text="Update" WidthRequest="200"/>
+
+                </StackLayout>
+                <StackLayout HeightRequest="100" Padding="20">
+
+                    <Label Text="Lucht vochtigheid" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    <Slider x:Name="HumiditySlider" Minimum="0" Maximum="100" DragCompleted="HumiditySlider_DragCompleted"/>
+                    <Label Text="" x:Name="Humiditylabel" HorizontalOptions="Center"/>
+                    <Button x:Name="HumiditySend" Clicked="HumiditySend_Clicked" Text="Update" WidthRequest="200"/>
+
+                </StackLayout>
+
+                <StackLayout  HeightRequest="100" Padding="20" >
+
+                    <Label Text="Grond vochtigheid" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    <Slider x:Name="SoilSlider" Minimum="0" Maximum="100" DragCompleted="SoilSlider_DragCompleted"/>
+                    <Label Text="" x:Name="SoilLabel" HorizontalOptions="Center"/>
+                    <Button x:Name="SoilSend" Clicked="SoilSend_Clicked" Text="Update" WidthRequest="200"/>
+
+                </StackLayout>
+
             </StackLayout>
-
-            <StackLayout  HeightRequest="100" Padding="50">
-                
-                <Label Text="Fan speed" VerticalOptions="Center" HorizontalOptions="Center"></Label>
-                <Slider x:Name="FanSlider" Minimum="0" Maximum="100" DragCompleted="FanSlider_DragCompleted" ></Slider>
-                <Label Text="" x:Name="FanLabel" HorizontalOptions="Center"></Label>
-                <Button x:Name="FanSend" Clicked="FanSend_Clicked" Text="Update" WidthRequest="200"></Button>
-                
-            </StackLayout>
-            
-        </StackLayout>
-    </ContentPage.Content>
+        </Grid>
+    </Grid>
 </ContentPage>

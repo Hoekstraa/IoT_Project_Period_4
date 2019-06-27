@@ -20,6 +20,7 @@ namespace Garduino
 
         protected override void OnStart()
         {
+
             // Get states of arduino for start-up
             Config.ControlStates = new int[3];
             Config.ControlStates = Config.GetStates();
@@ -30,7 +31,7 @@ namespace Garduino
             if (Config.selectedCrop != null)
                 MainPage = new MasterPage();
             else
-                MainPage = new Setup_Select(); 
+                MainPage = new Setup_Select();
         }
 
         protected override void OnSleep()

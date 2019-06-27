@@ -52,9 +52,9 @@ namespace Garduino.Database
         {
             return new List<SensorValues>(Connection.Query<SensorValues>("Select DateTime From SensorValues"));
         }
-        public List<SensorValues> GetTemp()
+        public List<SensorValues> GetAll()
         {
-            return new List<SensorValues>(Connection.Query<SensorValues>("Select Temperature From SensorValues"));
+            return new List<SensorValues>(Connection.Query<SensorValues>("Select * From SensorValues"));
         }
         public List<SensorValues> GetHumidity()
         {

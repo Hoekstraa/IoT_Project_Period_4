@@ -13,5 +13,6 @@ namespace Garduino.Database
         public int Humidity { get; set; }
         public int SoilMoisture { get; set; }
         public int FanInterval { get; set; }
+
     }
 }
