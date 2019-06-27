@@ -6,10 +6,12 @@
             Title = "StatsPage">
     <ContentPage.Content>
         <StackLayout>
-  
 
+            <Label Text="Temperature" HorizontalOptions="Center"></Label>
             <microcharts:ChartView x:Name="chartView" Chart="{Binding Chart}" HeightRequest="175"/>
+            <Label Text="Humidity" HorizontalOptions="Center"></Label>
             <microcharts:ChartView x:Name="chartView2" Chart="{Binding Chart2}" HeightRequest="175"/>
+            <Label Text="SoilMoisture" HorizontalOptions="Center"></Label>
             <microcharts:ChartView x:Name="chartView3" Chart="{Binding Chart3}" HeightRequest="175"/>
          
         </StackLayout>
