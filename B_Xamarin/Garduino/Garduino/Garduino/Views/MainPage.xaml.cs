@@ -35,6 +35,8 @@ namespace Garduino
 
             Device.StartTimer(TimeSpan.FromSeconds(5), () =>
             {
+                Config.ControlStates = new int[3];
+                Config.ControlStates = Config.GetStates();
                 SetSensorValues();
                 return true; 
             });

@@ -31,6 +31,11 @@ namespace Garduino.Views
             // Reset selectedCrop
             Config.selectedCrop = null;
 
+            // Set base values to 0 so the arduino resets 
+            CC.Conn.Set("moistness_min", 0);
+            CC.Conn.Set("humidity_max", 100);
+            CC.Conn.Set("light_lenght", 0);
+
             // Go to setuppage
             Application.Current.MainPage = new Setup_Select(); 
         }
