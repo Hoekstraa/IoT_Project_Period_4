@@ -7,7 +7,7 @@ Connection::Connection(int port) : _server(port) {
 }
 
 /// \brief Concatenates a char to a (char pointer) string
-///WARNING: This function by itself does not check if appending will go out of range of char* s!
+/// WARNING: This function by itself does not check if appending will go out of range of char* s!
 /// \param s String to append a char to.
 /// \param c Char to append to string s.
 void Connection::appendChar(char* s, char c)
@@ -36,14 +36,11 @@ void Connection::Listen(String (*callback)(Request *req)) {
     if (received == '\n') {
       Serial.println("Data Received:");
       Serial.print(_dataRec);
-      //Serial.println("Callback calculating..");
-      //Request* req;
-      String result = callback(parseString(_dataRec));
-      //delete req; // Needed to clear the result type for next time a client connects
+      const String result = callback(parseString(_dataRec));
       Serial.println("result:");
       Serial.println(result);
       _server.println(result); // Return result of callback to client.
-      strcpy(_dataRec, "");
+      //strcpy(_dataRec, "");
       client.stop();
     }
   }
@@ -65,7 +62,7 @@ Request* Connection::parseString(char* str) {
   }
   else if (ss.startsWith("set ")) {
     req->type = "set";
-    String sss = ss.substring(4);
+    const String sss = ss.substring(4);
     //Serial.println(sss.indexOf(' '));
     if (sss.indexOf(' ') != 0) { // Another space char exists in the string.
       req->thing = sss.substring(0, sss.indexOf(' ')); // Get the string between 'set' and the second space. And make a copy of it.
